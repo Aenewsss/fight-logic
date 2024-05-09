@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { BannerButton } from "./banner-button";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function BannerForm() {
     const [state, action] = useFormState(banner, undefined)
@@ -23,6 +24,11 @@ export default function BannerForm() {
         }
         getBanner()
     }, []);
+
+    useEffect(() => {
+        if (state?.error) toast(state.error, { type: "error" });
+        if (state?.data) toast('Imagem alterada com sucesso', { type: "success" });
+    }, [state]);
 
     function handleBannerImage(e: any) {
         e.preventDefault()
@@ -46,6 +52,7 @@ export default function BannerForm() {
                     <BannerButton />
                 </div>
             </div>
+            <ToastContainer theme="dark" pauseOnHover={false} />
         </form>
     )
 }
