@@ -2,6 +2,7 @@ import { SignupFormSchema, FormState } from '@/app/lib/definitions'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../lib/firebase"
 import { redirect } from "next/navigation"
+import { createSession } from "../lib/session"
 
 export async function signup(state: FormState, formData: FormData) {
     const validatedFields = SignupFormSchema.safeParse({
@@ -38,9 +39,10 @@ export async function signin(state: any, formData: FormData) {
 
     try {
         const { user } = await signInWithEmailAndPassword(auth, email, password)
-        console.log(user.uid)
-        redirect('/admin')
+        await createSession(user.uid)
     } catch (e) {
         return { error: 'E-mail ou senha incorretos' }
     }
+
+    redirect('/admin')
 }
