@@ -41,7 +41,7 @@ export default function BannerForm() {
         <form action={action} className="w-full mt-4">
             <div className="flex flex-col gap-2">
                 {bannerImage || newBannerImage
-                    ? <Image className="w-full max-h-[500px] object-cover" unoptimized blurDataURL="/logo-amarela.png" placeholder="blur" src={newBannerImage || bannerImage} width={300} height={300} alt="Imagem do Topo do Site" />
+                    ? <Image className="w-full max-h-[500px] object-cover" unoptimized src={newBannerImage || bannerImage} width={300} height={300} alt="Imagem do Topo do Site" />
                     : <p>Carregando</p>
                 }
                 <label className="hover:bg-white hover:text-blue-500 hover:border-blue-500 border cursor-pointer rounded flex self-center bg-blue-500 text-white px-3 py-2" htmlFor="file">

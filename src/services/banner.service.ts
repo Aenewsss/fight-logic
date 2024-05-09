@@ -1,6 +1,6 @@
 import { database, storage } from "@/app/lib/firebase";
 import { IResponse } from "@/interfaces";
-import { child, get, ref, set } from "firebase/database";
+import { get, ref, set } from "firebase/database";
 import { deleteObject, ref as storageRef, uploadBytes } from "firebase/storage";
 
 

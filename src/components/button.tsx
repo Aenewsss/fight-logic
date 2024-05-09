@@ -12,5 +12,5 @@ interface IProps {
 
 export default function Button({ text, onClick, backgroundColor = 'gray', color = 'white', disabled, type = "button", className }: IProps) {
     
-    return <button onClick={onClick} className={`px-4 py-1 rounded hover:scale-105 transition-all bg-${backgroundColor}-400 text-${color} text-${color}-500 ${className}`} type={type} disabled={disabled}>{text}</button>
+    return <button onClick={onClick} className={`px-4 py-1 rounded hover:scale-105 transition-all bg-amber-400 text-black ${className}`} type={type} disabled={disabled}>{text}</button>
 }
