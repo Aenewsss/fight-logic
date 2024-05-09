@@ -1,7 +1,7 @@
 import { database, storage } from "@/app/lib/firebase";
 import { IResponse } from "@/interfaces";
-import { child, get, ref } from "firebase/database";
-import { ref as storageRef, uploadBytes } from "firebase/storage";
+import { child, get, ref, set } from "firebase/database";
+import { deleteObject, ref as storageRef, uploadBytes } from "firebase/storage";
 
 
 class BannerService {
@@ -15,10 +15,24 @@ class BannerService {
     }
 
     async updateBanner(file: File): Promise<IResponse> {
-        const bannerRef = storageRef(storage, `banner/${file.name}`)
+        const dbRef = ref(database, 'banner/')
+        const banner = await get(dbRef)
 
-        const data = await uploadBytes(bannerRef, file)
+        if (!banner.exists()) return { data: null, error: 'Nenhum banner encontrado' }
+
+        const filename = banner.val().split('/banner%2F')[1].split('?alt')[0]
+
+        const removeStgRef = storageRef(storage, `banner/${filename}`)
+        await deleteObject(removeStgRef)
+
+        const stgRef = storageRef(storage, `banner/${file.name}`)
+        const { metadata } = await uploadBytes(stgRef, file)
+
+        const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${metadata.bucket}/o/banner%2F${metadata.name}?alt=media`
+
+        await set(ref(database), { banner: imageUrl })
         
+        return { data: imageUrl, error: null }
     }
 }
 
