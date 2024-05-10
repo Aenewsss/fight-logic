@@ -41,7 +41,7 @@ export default function TeamAddForm({ setShowAddForm }: IProps) {
 
     return (
         <form action={action} className="p-8 bg-white shadow-md shadow-black flex flex-col gap-4 ">
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
                 <div className="flex flex-col gap-2 w-full">
                     <label htmlFor="title">Equipe</label>
                     <input required placeholder="Nome da equipe" className="px-4 border rounded py-2" id="title" type="text" name="name" />

@@ -40,7 +40,7 @@ export default function AboutForm() {
 
     return (
         <form action={action} className="w-full mt-4">
-            <div className="flex gap-8">
+            <div className="flex gap-8 flex-wrap">
                 <div className="flex flex-col gap-2">
                     {about.image || newImage
                         ? <Image className="object-cover" unoptimized src={newImage || about.image} width={300} height={300} alt="Imagem do Topo do Site" />

@@ -44,7 +44,7 @@ export default function Form({ id }: IProps) {
             </div>
             <div className="flex flex-col gap-2 w-full">
                 <label htmlFor="description">Descrição</label>
-                <textarea value={diferential.description} onChange={e => setDiferential({ ...diferential, description: e.target.value })} className="px-4 border rounded py-2" id="description" name="description"></textarea>
+                <textarea rows={10} value={diferential.description} onChange={e => setDiferential({ ...diferential, description: e.target.value })} className="px-4 border rounded py-2" id="description" name="description"></textarea>
             </div>
             <input name="id" value={id} hidden type="text" />
             <DiferentialButton />

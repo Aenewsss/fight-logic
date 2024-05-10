@@ -43,8 +43,8 @@ export default function ScheduleBoard() {
     if (!checkIsEmpty() || showFormToAdd) return <ScheduleAddForm setShowFormToAdd={setShowFormToAdd} />
 
     return (
-        <div className="bg-white p-8 mt-8 w-full flex flex-col items-center">
-            <table className="table-auto w-full rounded-md overflow-hidden">
+        <div className="bg-white md:p-8 mt-8 w-full flex flex-col items-center">
+            <table className="table-auto w-full rounded-md overflow-hidden hidden md:table">
                 <thead>
                     <tr className="bg-slate-300">
                         <th>Segunda</th>
@@ -68,6 +68,52 @@ export default function ScheduleBoard() {
                     </tr>
                 </tbody>
             </table>
+
+            <div className="flex flex-col md:hidden gap-4 w-full">
+                <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
+                    <h2 className="text-center font-semibold border-b pb-2">Segunda</h2>
+                    <ul>
+                        <li>{Object.keys(schedules.monday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('monday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
+                    <h2 className="text-center font-semibold border-b pb-2">Terça</h2>
+                    <ul>
+                        <li>{Object.keys(schedules.tuesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('tuesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
+                    <h2 className="text-center font-semibold border-b pb-2">Quarta</h2>
+                    <ul>
+                        <li>{Object.keys(schedules.wednesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('wednesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
+                    <h2 className="text-center font-semibold border-b pb-2">Quinta</h2>
+                    <ul>
+                        <li>{Object.keys(schedules.thursday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('thursday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
+                    <h2 className="text-center font-semibold border-b pb-2">Sexta</h2>
+                    <ul>
+                        <li>{Object.keys(schedules.friday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('friday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
+                    <h2 className="text-center font-semibold border-b pb-2">Sábado</h2>
+                    <ul>
+                        <li>{Object.keys(schedules.saturday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('saturday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
+                    <h2 className="text-center font-semibold border-b pb-2">Domingo</h2>
+                    <ul>
+                        <li>{Object.keys(schedules.sunday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('sunday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                    </ul>
+                </div>
+            </div>
+
             <button onClick={_ => setShowFormToAdd(true)} className="mt-8 bg-amber-400 px-4 py-1 rounded-md hover:scale-105">Adicionar Horário</button>
             <ToastContainer theme="dark" pauseOnHover={false} />
         </div>
