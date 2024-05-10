@@ -18,7 +18,7 @@ export default function DiferentialList() {
         setDiferentials(data)
     }
 
-    if (!diferentials || diferentials.length == 0) return <p>Carregnado</p>
+    if (!diferentials || diferentials.length == 0) return <p>Carregando</p>
 
     return (
         <div className="mt-8 shadow-md shadow-black px-8 py-4 bg-white rounded">

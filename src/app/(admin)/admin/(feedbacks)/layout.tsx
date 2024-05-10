@@ -5,8 +5,8 @@ export default function Layout({ children }: { children: ReactNode }) {
     return (
         <main className="container m-5 flex flex-col items-center">
             <Link className="absolute top-4 left-4 text-gray-700 hover:underline" href="/admin">← Voltar</Link>
-            <h1 className="text-4xl">Diferencias Fight Logic</h1>
-            <p>Destaque os principais diferenciais da Fight Logic</p>
+            <h1 className="text-4xl">Feedbacks dos Nossos Alunos</h1>
+            <p className="mb-8">Adicione feedbacks dos alunos da Fight Logic</p>
             {children}
         </main>
     )

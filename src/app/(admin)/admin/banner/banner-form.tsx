@@ -47,7 +47,7 @@ export default function BannerForm() {
                 <label className="hover:bg-white hover:text-blue-500 hover:border-blue-500 border cursor-pointer rounded flex self-center bg-blue-500 text-white px-3 py-2" htmlFor="file">
                     Alterar Banner
                 </label>
-                <input required onChange={handleBannerImage} name="file" id="file" hidden type="file" />
+                <input required onChange={handleBannerImage} name="file" id="file" hidden type="file" accept="image/*" />
                 <div className={`flex self-center ${newBannerImage ? 'pointer-events-auto' : 'pointer-events-none opacity-60'}`}>
                     <BannerButton />
                 </div>

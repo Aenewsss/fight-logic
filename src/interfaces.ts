@@ -8,3 +8,10 @@ export interface IDiferentials {
     title: string
     description: string
 }
+
+export interface IFeedback {
+    id?: string
+    image: string
+    text: string
+    name: string
+}
