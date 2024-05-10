@@ -15,3 +15,11 @@ export interface IFeedback {
     text: string
     name: string
 }
+
+export interface ITeam {
+    id?: string
+    logo:string
+    image: string
+    text: string
+    name: string
+}

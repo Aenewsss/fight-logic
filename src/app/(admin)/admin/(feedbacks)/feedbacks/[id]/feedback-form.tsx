@@ -66,7 +66,7 @@ export default function Form({ id }: IProps) {
                 <label className="hover:bg-white hover:text-blue-500 hover:border-blue-500 border cursor-pointer rounded flex self-start bg-blue-500 text-white px-3 py-2" htmlFor="file">
                     Alterar Foto
                 </label>
-                <input required onChange={handleImage} name="file" id="file" hidden type="file" accept="image/*" />
+                <input onChange={handleImage} name="file" id="file" className="opacity-0" type="file" accept="image/*" />
             </div>
             <input name="id" value={id} hidden type="text" />
 

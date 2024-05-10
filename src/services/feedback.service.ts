@@ -1,6 +1,6 @@
 import { database, storage } from "@/app/lib/firebase"
 import { IResponse } from "@/interfaces"
-import { get, ref, remove, set } from "firebase/database"
+import { get, ref, remove, set, update } from "firebase/database"
 import { deleteObject, ref as storageRef, uploadBytes } from "firebase/storage";
 
 class FeedbackService {
@@ -8,31 +8,45 @@ class FeedbackService {
         const dbRef = ref(database, 'feedbacks/')
         const data = await get(dbRef)
 
-        if (!data.exists()) return { data: null, error: 'Nenhum diferencial encontrado' }
+        if (!data.exists()) return { data: null, error: 'Nenhum feedback encontrado' }
 
         return { error: null, data: data.val() }
     }
 
     async insertFeedback(file: File, text: string, name: string): Promise<IResponse> {
         try {
-            const stgRef = storageRef(storage, `feedbacks/${file.name}`)
-            const { metadata } = await uploadBytes(stgRef, file)
+            if (file) {
 
-            const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${metadata.bucket}/o/feedbacks%2F${metadata.name}?alt=media`
+                const stgRef = storageRef(storage, `feedbacks/${file.name}`)
+                const { metadata } = await uploadBytes(stgRef, file)
 
-            const getDbRef = ref(database, 'feedbacks/')
-            const data = await get(getDbRef)
-            const id = !data.exists() ? 1 : data.val().length
+                const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${metadata.bucket}/o/feedbacks%2F${metadata.name}?alt=media`
 
-            const setRef = ref(database, `feedbacks/${id}`)
+                const getDbRef = ref(database, 'feedbacks/')
+                const data = await get(getDbRef)
+                const id = !data.exists() ? 1 : data.val().length
 
-            await set(setRef, {
-                image: imageUrl,
-                text,
-                name,
-            }).then(res => console.log(res)).catch(e => console.error(e))
+                const setRef = ref(database, `feedbacks/${id}`)
 
-            return { error: null, data: true }
+                await set(setRef, {
+                    image: imageUrl,
+                    text,
+                    name,
+                })
+
+                return { error: null, data: true }
+            } else {
+                const getDbRef = ref(database, 'feedbacks/')
+                const data = await get(getDbRef)
+                const id = !data.exists() ? 1 : data.val().length
+
+                const setRef = ref(database, `feedbacks/${id}`)
+
+                await update(setRef, {
+                    text,
+                    name,
+                })
+            }
         } catch (error: any) {
             return { data: null, error: error.message }
         }
