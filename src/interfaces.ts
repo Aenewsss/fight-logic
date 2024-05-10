@@ -18,8 +18,18 @@ export interface IFeedback {
 
 export interface ITeam {
     id?: string
-    logo:string
+    logo: string
     image: string
     text: string
     name: string
+}
+
+export interface ISchedule {
+    monday: any
+    tuesday: any,
+    wednesday: any
+    thursday: any,
+    friday: any,
+    saturday:any
+    sunday: any,
 }
