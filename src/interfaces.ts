@@ -30,6 +30,11 @@ export interface ISchedule {
     wednesday: any
     thursday: any,
     friday: any,
-    saturday:any
+    saturday: any
     sunday: any,
+}
+
+export interface IAbout {
+    text: string
+    image: string
 }
