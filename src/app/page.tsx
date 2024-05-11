@@ -1,3 +1,4 @@
+import Contact from "@/sections/contact";
 import Diferentials from "@/sections/diferentials";
 import Feedbacks from "@/sections/feedbacks";
 import FoundingMember from "@/sections/founding-member";
@@ -14,6 +15,7 @@ export default function Home() {
       <FoundingMember />
       <Teams />
       <Schedule />
+      <Contact />
     </main>
   );
 }
