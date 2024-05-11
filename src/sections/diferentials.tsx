@@ -19,7 +19,7 @@ export default function Diferentials() {
     }, []);
 
     return (
-        <section className="my-8 relative">
+        <section className="my-8 relative" id="diferenciais">
 
             <div className="absolute top-0 left-0 w-full flex items-center">
                 <h2 className="text-[3.5rem] z-10 text-white pl-8 font-questrial">Por que escolher <br />a Fight Logic?</h2>

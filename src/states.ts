@@ -1,4 +1,4 @@
-import { ISchedule, ITeam } from "./interfaces";
+import { IAbout, ISchedule, ITeam } from "./interfaces";
 
 export const ScheduleInitialState: ISchedule = {
     friday: [''],
@@ -14,5 +14,10 @@ export const TeamInitialState: ITeam = {
     image: '',
     logo: '',
     name: 'Constrictor',
+    text: ''
+}
+
+export const AboutInitialState: IAbout = {
+    image: '',
     text: ''
 }

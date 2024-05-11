@@ -2,8 +2,8 @@ import ContactForm from "@/components/contact-form";
 
 export default function Contact() {
     return (
-        <section className="relative flex justify-center min-h-[600px]">
-            <div className="container mx-auto absolute -top-32 rounded-[40px] shadow-md shadow-slate-400 p-16" style={{ background: 'linear-gradient(to right,#FFF 0%, #fff 70%, #6DE1C2 0%, #6DE1C2 30%', }}>
+        <section className="relative flex justify-center min-h-[600px]" >
+            <div id="contato" className="container mx-auto absolute -top-32 rounded-[40px] shadow-md shadow-slate-400 p-16" style={{ background: 'linear-gradient(to right,#FFF 0%, #fff 70%, #6DE1C2 0%, #6DE1C2 30%', }}>
                 <div className="flex gap-8">
                     <div className="flex flex-col gap-4 w-3/4">
                         <h3 className="font-questrial text-5xl">Entre em contato</h3>

@@ -9,8 +9,8 @@ export default function Footer() {
                 <ul className="list-none flex gap-5 text-white font-questrial items-center text-sm">
                     <li><Link href="/horarios">Nossos horários</Link></li>
                     <li><Link href="/equipes-parceiras">Equipes parceiras</Link></li>
-                    <li><Link href="/diferenciais">Diferenciais Fight Logic</Link></li>
-                    <li><Link href="/contato">Entre em contato</Link></li>
+                    <li><Link href="/#diferenciais">Diferenciais Fight Logic</Link></li>
+                    <li><Link href="/#contato">Entre em contato</Link></li>
                     <li><Link href="/quem-somos">Quem somos</Link></li>
                     <li className="bg-white px-2 py-1 text-black rounded-md"><Link href="/matricula">Faça parte do time</Link></li>
                 </ul>
