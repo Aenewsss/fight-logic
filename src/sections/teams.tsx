@@ -26,7 +26,7 @@ export default function Teams() {
                     <div key={index} className="relative mt-10">
                         <Image unoptimized className="md:w-2/3 w-full max-h-[400px] object-cover md:rounded-r-xl" src={el.image} width={400} height={300} alt={`Foto do time ${el.name}`} />
                         <div className="md:absolute right-0 -bottom-20 flex items-center justify-center bg-black md:w-1/2 w-full md:h-[300px] p-5 md:rounded-l-xl">
-                            <div className="flex gap-4 flex-wrap justify-center">
+                            <div className="flex gap-4 md:flex-nowrap flex-wrap justify-center">
                                 <div className="bg-white flex justify-center items-center rounded-md min-w-[200px]">
                                     <Image unoptimized src={el.logo} width={172} height={172} alt={`Logo ${el.name}`} />
                                 </div>

@@ -9,8 +9,12 @@ export default function Top() {
 
     useEffect(() => {
         async function getData() {
-            const { data } = await bannerService.getCurrentBanner()
-            setBanner(data)
+            setBanner(localStorage.getItem('banner-image') || '')
+
+            bannerService.getCurrentBanner().then(({ data }) => {
+                localStorage.setItem('banner-image', data)
+                setBanner(data)
+            })
         }
         getData()
     }, []);

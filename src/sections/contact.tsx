@@ -4,7 +4,7 @@ export default function Contact() {
     return (
         <section className="relative flex justify-center md:min-h-[600px] min-h-[800px]">
             <div id="contato" className="container mx-auto absolute md:-top-32 rounded-[40px] shadow-md shadow-slate-400 md:p-16 p-4" style={{ background: 'linear-gradient(to right,#FFF 0%, #fff 70%, #6DE1C2 0%, #6DE1C2 30%', }}>
-                <div className="flex gap-8 flex-wrap">
+                <div className="flex gap-8 md:flex-nowrap flex-wrap">
                     <div className="flex flex-col gap-4 md:w-3/4">
                         <h3 className="font-questrial md:text-5xl text-4xl">Entre em contato</h3>
                         <p className="font-inter">Venha nos fazer uma visita e conhecer nossa academia</p>
