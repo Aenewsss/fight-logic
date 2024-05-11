@@ -20,7 +20,6 @@ export default function Navbar() {
 
         function scrollListener() {
             const scrollPos = Math.abs(document.body.getBoundingClientRect().top)
-
             if (scrollPos > 10) setNavClass({ marginTop: 'mt-0', bgColor: 'bg-black', textColor: 'text-white', container: false, })
             else setNavClass({ marginTop: 'mt-4', bgColor: 'bg-white', textColor: 'text-black', container: true })
         }
@@ -50,7 +49,7 @@ export default function Navbar() {
                     <li className="hover:scale-105 transition-all"><Link href="/quem-somos">Quem somos</Link></li>
                 </ul>
             </div>
-            {!showMenu && <div className="w-full translate-y-[120%]">
+            {!showMenu && <div className="md:hidden translate-y-[120%] translate-x-[-50%]">
                 <Image onClick={_ => setShowMenu(true)} className="shadow-black drop-shadow-lg cursor-pointer" src={`${navClass.container ? "/icons/menu-white.svg" : "/icons/menu-black.svg"}`} width={30} height={30} alt="Ícone Menu" />
             </div>}
         </nav>
