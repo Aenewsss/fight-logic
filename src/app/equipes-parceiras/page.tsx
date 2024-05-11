@@ -3,13 +3,14 @@
 import { ITeam } from "@/interfaces";
 import aboutService from "@/services/about.service";
 import teamService from "@/services/team.service";
+import { TeamInitialState } from "@/states";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Page() {
 
-    const [teams, setTeams] = useState<ITeam[]>();
+    const [teams, setTeams] = useState<ITeam[]>([TeamInitialState]);
 
     useEffect(() => {
         async function getData() {
@@ -20,7 +21,7 @@ export default function Page() {
     }, []);
 
     return (
-        <main className="container mx-auto mt-20">
+        <main className="mx-auto pt-32 pb-20">
             <h1 className="text-[3.5rem] font-questrial text-center">Equipes Parceiras F1ght Logic</h1>
 
             {
