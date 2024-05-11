@@ -9,7 +9,7 @@ export default function BenefitsCard() {
 
     const [opened, setOpened] = useState(false);
 
-    if (!pathname.includes('admin')) return (
+    if (!pathname.includes('admin') && !pathname.includes('login') && !pathname.includes('cadastro')) return (
         <div onClick={_ => setOpened(!opened)} className={`bg-[#ffd600] shadow-lg shadow-[#ffd600] fixed top-[25%] h-[200px] rounded-md transition-all cursor-pointer p-4 z-10 ${opened ? 'w-[260px]' : 'md:w-11 w-6'}`}>
             {opened ?
                 <div className="flex flex-col gap-8 justify-center h-full">

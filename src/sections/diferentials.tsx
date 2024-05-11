@@ -22,12 +22,12 @@ export default function Diferentials() {
         <section className="my-8 relative" id="diferenciais">
 
             <div className="absolute top-0 left-0 w-full flex items-center">
-                <h2 className="text-[3.5rem] z-10 text-white pl-8 font-questrial">Por que escolher <br />a Fight Logic?</h2>
+                <h2 className="md:text-[3.5rem] text-4xl z-10 text-white pl-8 font-questrial">Por que escolher <br />a Fight Logic?</h2>
                 <Image className="absolute" src="/blob.svg" width={500} height={500} alt="Blob" />
             </div>
             <div className="container mx-auto">
-                <div className="grid grid-cols-3 justify-items-center">
-                    <div></div>
+                <div className="grid md:grid-cols-3 justify-items-center">
+                    <div className="min-h-[200px]"></div>
                     <div className="flex flex-col gap-4 items-center max-w-[400px]">
                         <Image src="/icons/experencia-10.svg" width={102} height={102} alt="Ícone experiência" />
                         <h3 className="text-center font-inter text-2xl font-semibold">{!diferentials ? 'carregando' : diferentials[0].title}</h3>
@@ -40,7 +40,7 @@ export default function Diferentials() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-3 mt-10 justify-items-center">
+                <div className="grid md:grid-cols-3 mt-10 justify-items-center">
                     <div className="flex flex-col gap-4 items-center max-w-[400px]">
                         <Image src="/icons/iniciantes.svg" width={102} height={102} alt="Ícone iniciantes" />
                         <h3 className="text-center font-inter text-2xl font-semibold">{!diferentials ? 'carregando' : diferentials[2].title}</h3>

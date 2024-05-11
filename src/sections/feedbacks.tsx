@@ -28,12 +28,12 @@ export default function Feedbacks() {
                 </div>
 
                 <div className="flex flex-col gap-8 w-full items-center md:order-2 order-1">
-                    <h2 className="text-[3.5rem] z-10 text-black font-questrial">Feedbacks dos nossos alunos</h2>
+                    <h2 className="md:text-[3.5rem] text-4xl z-10 text-black font-questrial">Feedbacks dos nossos alunos</h2>
 
                     <div className="relative">
                         <p>{feedbacks[0].text}</p>
-                        <Image className="absolute -top-10 -left-[60px]" src="/icons/quote.svg" width={60} height={60} alt="Aspas"/>
-                        <Image className="absolute -bottom-10 -right-[60px]" src="/icons/quote-inversa.svg" width={60} height={60} alt="Aspas invertidas"/>
+                        <Image className="hidden md:flex absolute -top-10 -left-[60px]" src="/icons/quote.svg" width={60} height={60} alt="Aspas"/>
+                        <Image className="hidden md:flex absolute -bottom-10 -right-[60px]" src="/icons/quote-inversa.svg" width={60} height={60} alt="Aspas invertidas"/>
                     </div>
 
                     <Link href="/matricula" className="bg-black text-white px-8 py-3 font-questrial text-2xl rounded-2xl">Matricular agora</Link>

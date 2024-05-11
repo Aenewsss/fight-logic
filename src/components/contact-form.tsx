@@ -7,19 +7,11 @@ export default function ContactForm() {
 
     return (
         <form action={'action'} className="flex flex-col gap-4 font-inter text-gray-700 h-full justify-between">
-            <div className="flex gap-4 flex-wrap">
-                <div className="flex flex-col gap-2 w-full">
-                    <input required placeholder="Nome" className="px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2" id="name" type="text" name="name" />
-                </div>
-                <div className="flex flex-col gap-2 w-full">
-                    <input required placeholder="Telefone" className="px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2" id="phone" type="text" name="phone" />
-                </div>
-                <div className="flex flex-col gap-2 w-full">
-                    <input required placeholder="E-mail" className="px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2" id="email" type="text" name="email" />
-                </div>
-                <div className="flex flex-col gap-2 w-full">
-                    <textarea required placeholder="Mensagem" className="px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2" id="message" name="message"></textarea>
-                </div>
+            <div className="flex gap-2 flex-wrap">
+                <input required placeholder="Nome" className="w-full px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2 bg-transparent" id="name" type="text" name="name" />
+                <input required placeholder="Telefone" className="w-full px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2 bg-transparent" id="phone" type="text" name="phone" />
+                <input required placeholder="E-mail" className="w-full px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2 bg-transparent" id="email" type="text" name="email" />
+                <textarea required placeholder="Mensagem" className="w-full px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2 bg-transparent" id="message" name="message"></textarea>
             </div>
             <ToastContainer theme="dark" pauseOnHover={false} />
             <SubmitButton />

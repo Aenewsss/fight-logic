@@ -22,14 +22,14 @@ export default function Page() {
 
     return (
         <main className="mx-auto pt-32 pb-20">
-            <h1 className="text-[3.5rem] font-questrial text-center">Equipes Parceiras F1ght Logic</h1>
+            <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center">Equipes Parceiras F1ght Logic</h1>
 
             {
                 teams.map((el, index) => (
                     <div key={index} className="relative mt-10">
-                        <Image unoptimized className="w-2/3 max-h-[400px] object-cover rounded-r-xl" src={el.image} width={400} height={300} alt={`Foto do time ${el.name}`} />
-                        <div className="absolute right-0 -bottom-20 flex items-center justify-center bg-black w-1/2 h-[300px] p-5 rounded-l-xl">
-                            <div className="flex gap-4">
+                        <Image unoptimized className="md:w-2/3 w-full max-h-[400px] object-cover md:rounded-r-xl" src={el.image} width={400} height={300} alt={`Foto do time ${el.name}`} />
+                        <div className="md:absolute right-0 -bottom-20 flex items-center justify-center bg-black md:w-1/2 w-full md:h-[300px] p-5 md:rounded-l-xl">
+                            <div className="flex gap-4 flex-wrap justify-center">
                                 <div className="bg-white flex justify-center items-center rounded-md min-w-[200px]">
                                     <Image unoptimized src={el.logo} width={172} height={172} alt={`Logo ${el.name}`} />
                                 </div>
