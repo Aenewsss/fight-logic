@@ -17,11 +17,11 @@ export default function Feedbacks() {
     }, []);
 
     return (
-        <section className="container mx-auto">
+        <section className="container mx-auto my-20">
             <div className="flex gap-10">
 
                 <div className="min-w-[260px] w-[260px] h-[362px] rounded-xl bg-black relative flex items-center justify-center ml-10">
-                    <div className="w-[318px] h-[302px] rounded-xl bg-[#EDEDED] absolute flex flex-col items-center justify-center">
+                    <div className="w-[318px] h-[302px] rounded-xl bg-[#EDEDED] absolute flex flex-col items-center justify-center gap-2">
                         <Image className="object-cover" unoptimized src={feedbacks[0].image} width={184} height={196} alt="Foto do aluno" />
                         <h3 className="font-questrial">{feedbacks[0].name}</h3>
                     </div>

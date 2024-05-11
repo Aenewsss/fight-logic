@@ -3,6 +3,7 @@ import { Questrial, Inter } from "next/font/google";
 import "./globals.css";
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const questrial = Questrial({ subsets: ['latin'], weight: '400', variable: "--font-questrial" });
 const inter = Inter({ subsets: ['latin'], weight: '400', variable: "--font-inter" });
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${questrial.variable}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
