@@ -31,7 +31,7 @@ class BannerService {
         const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${metadata.bucket}/o/banner%2F${metadata.name}?alt=media`
 
         await set(ref(database), { banner: imageUrl })
-        
+
         return { data: imageUrl, error: null }
     }
 }

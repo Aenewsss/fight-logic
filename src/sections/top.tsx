@@ -16,8 +16,8 @@ export default function Top() {
     }, []);
 
     return (
-        <section>
-            <Image unoptimized className="h-screen w-full object-cover" src={banner} width={300} height={100} alt="Banner" />
+        <section className="relative z-0">
+            <Image unoptimized className="object-cover w-full h-screen" src={banner} width={300} height={100} alt="Banner" />
         </section>
     )
 }
