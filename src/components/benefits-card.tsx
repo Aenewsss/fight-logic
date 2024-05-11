@@ -10,7 +10,7 @@ export default function BenefitsCard() {
     const [opened, setOpened] = useState(false);
 
     if (!pathname.includes('admin')) return (
-        <div onClick={_ => setOpened(!opened)} className={`bg-[#ffd600] shadow-lg shadow-[#ffd600] fixed top-[25%] h-[200px] rounded-md transition-all cursor-pointer p-4 z-10 ${opened ? 'w-[260px]' : 'w-11'}`}>
+        <div onClick={_ => setOpened(!opened)} className={`bg-[#ffd600] shadow-lg shadow-[#ffd600] fixed top-[25%] h-[200px] rounded-md transition-all cursor-pointer p-4 z-10 ${opened ? 'w-[260px]' : 'md:w-11 w-6'}`}>
             {opened ?
                 <div className="flex flex-col gap-8 justify-center h-full">
                     <h3 className="font-inter font-semibold text-2xl">Garanta seus benefícios</h3>
@@ -19,7 +19,7 @@ export default function BenefitsCard() {
                         <Image className="absolute -top-[8px] -right-[8px]" src="/icons/crown.svg" width={20} height={20} alt="Ícone coroa" />
                     </Link>
                 </div>
-                : <ul className="list-none font-inter font-semibold text-center text-sm">
+                : <ul className="list-none font-inter font-semibold text-center text-sm md:ml-0 -ml-1">
                     <li>B</li>
                     <li className="-mt-1">E</li>
                     <li className="-mt-1">N</li>
@@ -32,7 +32,7 @@ export default function BenefitsCard() {
                     <li className="-mt-1">S</li>
                 </ul>}
             {!opened && <Image className="absolute -top-[8px] -right-[8px]" src="/icons/crown.svg" width={20} height={20} alt="Ícone coroa" />}
-            <div className={`h-full ${opened ? 'w-[240px]' : 'w-8'} absolute top-0 flex items-center`}>
+            <div className={`h-full ${opened ? 'w-[240px]' : 'md:w-8 w-4'} absolute top-0 flex items-center`}>
                 <Image className={`absolute right-0 ${opened && 'rotate-180'}`} src="/icons/arrow-right-card.svg" width={8} height={8} alt="Ícone seta para direita" />
             </div>
         </div>
