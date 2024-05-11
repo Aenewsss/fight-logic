@@ -8,8 +8,7 @@ class DiferentialsService {
         const data = await get(dbRef)
 
         if (!data.exists()) return { data: null, error: 'Nenhum diferencial encontrado' }
-
-        return { error: null, data: data.val() }
+        return { error: null, data: data.val().filter(Boolean) }
     }
 
     async updateDiferential(id: string, title: string, description: string): Promise<IResponse> {

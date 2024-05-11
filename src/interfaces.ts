@@ -4,7 +4,7 @@ export interface IResponse {
 }
 
 export interface IDiferentials {
-    id: string
+    id?: string
     title: string
     description: string
 }
