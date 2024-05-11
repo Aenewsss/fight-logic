@@ -10,7 +10,7 @@ class TeamService {
 
         if (!data.exists()) return { data: null, error: 'Nenhuma equipe encontrada' }
 
-        return { error: null, data: data.val() }
+        return { error: null, data: data.val().filter(Boolean) }
     }
 
     async insertTeam(logoFile: File, teamFile: File, text: string, name: string): Promise<IResponse> {

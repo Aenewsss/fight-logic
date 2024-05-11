@@ -1,6 +1,7 @@
 import Diferentials from "@/sections/diferentials";
 import Feedbacks from "@/sections/feedbacks";
 import FoundingMember from "@/sections/founding-member";
+import Teams from "@/sections/teams";
 import Top from "@/sections/top";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <Diferentials />
       <Feedbacks />
       <FoundingMember />
+      <Teams />
     </main>
   );
 }
