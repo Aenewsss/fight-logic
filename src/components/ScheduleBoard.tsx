@@ -19,7 +19,7 @@ export default function ScheduleBoard() {
     }, []);
 
     return (
-        <div className="bg-black py-8 px-16 text-white flex flex-col gap-8">
+        <div className="bg-black py-8 px-16 text-white flex flex-col gap-8 mb-10 items-center" style={{boxShadow: '-2px -2px 10px 0 rgb(0,0,0), 2px 2px 10px 0 rgb(0,0,0)'}}>
             <ul className="flex  list-none text-2xl font-questrial">
                 <li className="min-w-[140px] text-center">Domingo</li>
                 <li className="min-w-[140px] text-center">Segunda</li>
