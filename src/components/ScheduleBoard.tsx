@@ -35,7 +35,7 @@ export default function ScheduleBoard() {
 
 
     if (mobileScreen) return (
-        <div className="gap-4 bg-black text-white w-full mx-8">
+        <div className="gap-4 bg-black text-white w-full p-4">
             <div className="flex flex-col gap-2">
                 <h4>Domingo</h4>
                 <ul className="md:min-w-[140px] min-w-[60px] border-r border-[#8A8A8A] font-inter">

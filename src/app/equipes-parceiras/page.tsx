@@ -21,7 +21,7 @@ export default function Page() {
     }, []);
 
     return (
-        <main className="mx-auto pt-32 pb-20">
+        <main className="mx-auto md:pt-32 pb-20">
             <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center">Equipes Parceiras F1ght Logic</h1>
 
             {
@@ -40,7 +40,7 @@ export default function Page() {
                 ))
             }
 
-            <div className="flex justify-center mt-32">
+            <div className="flex justify-center md:mt-32 mt-10">
                 <Link href="/matricula" className="bg-black text-white px-8 py-3 font-questrial text-2xl rounded-2xl">Matricular agora</Link>
             </div>
         </main>
