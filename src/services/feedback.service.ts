@@ -10,7 +10,7 @@ class FeedbackService {
 
         if (!data.exists()) return { data: null, error: 'Nenhum feedback encontrado' }
 
-        return { error: null, data: data.val() }
+        return { error: null, data: data.val().filter(Boolean) }
     }
 
     async insertFeedback(file: File, text: string, name: string): Promise<IResponse> {

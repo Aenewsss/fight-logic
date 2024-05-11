@@ -3,6 +3,7 @@
 import { IDiferentials } from "@/interfaces";
 import diferentialsService from "@/services/diferentials.service";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Diferentials() {
@@ -21,7 +22,7 @@ export default function Diferentials() {
         <section className="my-8 relative">
 
             <div className="absolute top-0 left-0 w-full flex items-center">
-                <h2 className="text-[3.5rem] z-10 text-white pl-8">Por que escolher <br />a Fight Logic?</h2>
+                <h2 className="text-[3.5rem] z-10 text-white pl-8 font-questrial">Por que escolher <br />a Fight Logic?</h2>
                 <Image className="absolute" src="/blob.svg" width={500} height={500} alt="Blob" />
             </div>
             <div className="container mx-auto">
@@ -56,12 +57,14 @@ export default function Diferentials() {
                         <p className="text-center font-questrial">{!diferentials ? 'carregando' : diferentials[4].description}</p>
                     </div>
                 </div>
-                <div className="flex justify-center mt-10">
+                <div className="flex flex-col items-center justify-center mt-10 gap-8">
                     <div className="flex flex-col gap-4 items-center max-w-[400px]">
                         <Image src="/icons/familia.svg" width={102} height={102} alt="Ícone família" />
                         <h3 className="text-center font-inter text-2xl font-semibold">{!diferentials ? 'carregando' : diferentials[5].title}</h3>
                         <p className="text-center font-questrial">{!diferentials ? 'carregando' : diferentials[5].description}</p>
                     </div>
+
+                    <Link href="/matricula" className="bg-black text-white px-8 py-3 font-questrial text-2xl rounded-2xl">Matricular agora</Link>
                 </div>
             </div>
         </section>
