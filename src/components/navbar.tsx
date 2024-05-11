@@ -8,7 +8,7 @@ export default function Navbar() {
 
     if (!pathname.includes('admin')) return (
         <nav className="flex justify-center fixed w-full z-20">
-            <div className="container bg-white mt-8 flex justify-around shadow-md shadow-gray-400 items-center font-questrial">
+            <div className="container bg-white mt-4 flex justify-around shadow-md shadow-gray-400 items-center font-questrial">
                 <ul className="list-none flex gap-4">
                     <li><Link href="/horarios">Nossos horários</Link></li>
                     <li><Link href="/equipes-parceiras">Equipes parceiras</Link></li>
