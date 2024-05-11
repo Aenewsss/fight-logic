@@ -2,8 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html    {
     scroll-behavior: smooth;
+    overflow-y: overlay;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 2px;
 }
 
 .font-inter {
