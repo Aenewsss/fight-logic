@@ -1,8 +1,11 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation"
 export default function Footer() {
-    return (
+    const pathname = usePathname()
+
+    if (!pathname.includes('admin')) return (
         <footer className="py-8 bg-black flex flex-col gap-10">
             <div className="flex justify-between container mx-auto">
                 <Image src="/logo-branca.png" width={106} height={38} alt="Logo branca Fight Logic" />

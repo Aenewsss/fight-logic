@@ -7,8 +7,8 @@ export default function Navbar() {
     const pathname = usePathname()
 
     if (!pathname.includes('admin')) return (
-        <nav className="flex justify-center fixed w-full z-20">
-            <div className="container bg-white mt-4 flex justify-around shadow-md shadow-gray-400 items-center font-questrial">
+        <nav className="flex justify-center fixed w-full z-20 mt-4">
+            <div className="container bg-white flex justify-around shadow-md shadow-gray-400 items-center font-questrial">
                 <ul className="list-none flex gap-4">
                     <li><Link href="/horarios">Nossos horários</Link></li>
                     <li><Link href="/equipes-parceiras">Equipes parceiras</Link></li>
