@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import WhatsAppButton from "@/components/whatsapp-button";
+import BenefitsCard from "@/components/benefits-card";
 
 const questrial = Questrial({ subsets: ['latin'], weight: '400', variable: "--font-questrial" });
 const inter = Inter({ subsets: ['latin'], weight: '400', variable: "--font-inter" });
@@ -27,6 +28,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <WhatsAppButton />
+        <BenefitsCard />
       </body>
     </html>
   );
