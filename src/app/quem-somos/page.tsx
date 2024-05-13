@@ -27,7 +27,7 @@ export default function Page() {
                 <p className="text-justify font-inter mt-4 md:mt-8">{about.text}</p>
             </div>
             <div className="flex justify-center mt-8">
-                <Link href="/matricula" className="bg-black text-white px-8 py-3 font-questrial text-2xl rounded-2xl">Matricular agora</Link>
+                <Link href="/matricula" className="bg-black text-white px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
             </div>
         </main>
     )

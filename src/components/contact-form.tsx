@@ -1,12 +1,22 @@
 'use client'
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import Button from "./button";
-import { useFormStatus } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
+import { contact } from "@/app/actions/contact";
+import { useEffect } from "react";
 
 export default function ContactForm() {
+    const [state, action] = useFormState(contact, undefined)
+
+    useEffect(() => {
+        if (state?.error) toast(state.error, { type: "error" });
+        if (state?.data) toast('Mensagem enviada com sucesso', { type: "success" });
+        console.log(state)
+    }, [state]);
+
 
     return (
-        <form action={'action'} className="flex flex-col gap-4 font-inter text-gray-700 h-full justify-between">
+        <form action={action} className="flex flex-col gap-4 font-inter text-gray-700 h-full justify-between">
             <div className="flex gap-2 flex-wrap">
                 <input required placeholder="Nome" className="w-full px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2 bg-transparent" id="name" type="text" name="name" />
                 <input required placeholder="Telefone" className="w-full px-4 border-b border-gray-300 focus-visible:outline-none focus-visible:border-black py-2 bg-transparent" id="phone" type="text" name="phone" />

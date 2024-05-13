@@ -15,7 +15,7 @@ export default function FoundingMember() {
                     mais consistente e alcance seus objetivos com
                     mais rapidez, tudo por um preço acessível.
                 </p>
-                <Link href="/matricula" className="bg-white text-black px-8 py-1 font-questrial text-lg rounded-md">Matricular agora</Link>
+                <Link href="/matricula" className="bg-white text-black px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
             </div>
         </section>
     )

@@ -36,8 +36,8 @@ export default function ScheduleBoard() {
 
 
     if (mobileScreen) return (
-        <div className="flex flex-col gap-4">
-            <div className="gap-4 bg-black text-white w-full p-4 rounded-md flex flex-col">
+        <div className="flex flex-col gap-4  w-full">
+            <div className="gap-4 bg-black text-white p-4 rounded-md flex flex-col">
                 <div className="flex flex-col gap-2">
                     <h4 className="border-b border-gray-700 pb-2">Domingo</h4>
                     <ul className="md:min-w-[140px] min-w-[60px] font-inter">
@@ -82,7 +82,7 @@ export default function ScheduleBoard() {
                 </div>
             </div>
             <div className="flex justify-center">
-                <Link href="/matricula" className="bg-black text-white px-8 py-1 font-questrial text-lg rounded-md">Matricular agora</Link>
+                <Link href="/matricula" className="bg-black text-white px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
             </div>
         </div>
     )
@@ -121,7 +121,7 @@ export default function ScheduleBoard() {
                 </ul>
             </div>
             <div className="flex justify-center">
-                <Link href="/matricula" className="bg-white text-black px-8 py-1 font-questrial text-lg rounded-md">Matricular agora</Link>
+                <Link href="/matricula" className="bg-white text-black px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
             </div>
         </div>
     )
