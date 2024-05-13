@@ -23,7 +23,7 @@ export default function Top() {
         <section className="relative z-0 flex justify-center items-center">
             <Image unoptimized className="object-cover w-full h-screen" src={banner} width={300} height={100} alt="Banner" />
             <div className="absolute bg-black opacity-60 w-full h-full"></div>
-            <h1 className="absolute text-6xl container text-center text-white font-bold font-questrial leading-[80px]">
+            <h1 className="absolute md:text-6xl text-4xl container text-center text-white font-bold font-questrial leading-[80px]">
                 Domine cada movimento.<br className="hidden md:flex" />
                 Supere os desafios.<br className="hidden md:flex"/>
                 Sua jornada começa aqui.
