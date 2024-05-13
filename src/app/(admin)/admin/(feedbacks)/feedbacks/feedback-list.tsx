@@ -56,8 +56,8 @@ export default function FeedbackList() {
                         <tr>
                             <th className="py-2">Aluno</th>
                             <th>Feedback</th>
-                            <th className="hidden md:flex">Foto</th>
-                            <th className="hidden md:flex">Editar</th>
+                            <th className="hidden md:table-cell">Foto</th>
+                            <th className="hidden md:table-cell">Editar</th>
                             <th className="px-4">Excluir</th>
                         </tr>
                     </thead>
@@ -66,10 +66,10 @@ export default function FeedbackList() {
                             <tr onClick={_ => goToPage(`/admin/feedbacks/${index}?name=${el.name}&feedback=${el.text}&image=${el.image}`)} key={index} className="border-b border-gray-30 md:cursor-default cursor-pointer">
                                 <td className="font-medium py-2">{el.name}</td>
                                 <td className="md:pl-8 py-2">{el.text}</td>
-                                <td className="md:pl-8 py-2 hidden md:flex">
+                                <td className="md:pl-8 py-2 hidden md:table-cell">
                                     <Image unoptimized src={el.image} width={100} height={100} alt="Lápis de edição" className="object-cover" />
                                 </td>
-                                <td className="md:pl-4 hidden md:flex">
+                                <td className="md:pl-4 hidden md:table-cell">
                                     <Link href={`/admin/feedbacks/${index}?name=${el.name}&feedback=${el.text}&image=${el.image}`} className="group">
                                         <Image src="/icons/pencil.svg" width={20} height={20} alt="Lápis de edição" className="group-hover:scale-110" />
                                     </Link>
