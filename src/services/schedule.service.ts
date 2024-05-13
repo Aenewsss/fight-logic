@@ -12,11 +12,11 @@ class ScheduleService {
         return { error: null, data: data.val() }
     }
 
-    async insertSchedule(id: string, hour: string): Promise<IResponse> {
+    async insertSchedule(id: string, hour: string, modality: string): Promise<IResponse> {
         try {
             const setRef = ref(database, `schedule/${id}`)
 
-            await update(setRef, { [hour]: '' })
+            await update(setRef, { [hour]: modality })
 
             return { error: null, data: true }
         } catch (error: any) {

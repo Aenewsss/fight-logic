@@ -53,6 +53,10 @@ export default function ScheduleAddForm({ setShowFormToAdd }: IProps) {
                 <label htmlFor="text">Horário</label>
                 <input value={hour} required onChange={formatHour} placeholder="12:30" maxLength={5} minLength={5} className="px-4 border rounded py-2" id="hour" type="text" name="hour" />
             </div>
+            <div className="flex flex-col gap-2 w-full">
+                <label htmlFor="text">Modalidade</label>
+                <input required placeholder="Jiu Jitsu" className="px-4 border rounded py-2" id="modality" type="text" name="modality" />
+            </div>
             <div className="flex flex-col gap-2 self-start">
                 <ScheduleButton />
                 <button onClick={_ => setShowFormToAdd(false)} type="button" className="bg-slate-300 py-1 rounded-md">Cancelar</button>
