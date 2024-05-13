@@ -21,8 +21,8 @@ export default function Page() {
     }, []);
 
     return (
-        <main className="mx-auto md:pt-32 pb-20">
-            <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center">Equipes Parceiras F1ght Logic</h1>
+        <main className="mx-auto md:pt-32 pt-10 pb-20">
+            <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center md:px-0 px-4">Equipes Parceiras Fight Logic</h1>
 
             {
                 teams.map((el, index) => (

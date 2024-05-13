@@ -10,7 +10,7 @@ export default function BenefitsCard() {
     const [opened, setOpened] = useState(false);
 
     if (!pathname.includes('admin') && !pathname.includes('login') && !pathname.includes('cadastro') && !pathname.includes('matricula') && !pathname.includes('pagamento')) return (
-        <div onClick={_ => setOpened(!opened)} className={`bg-[#ffd600] shadow-lg shadow-[#ffd600] fixed md:top-[25%] md:h-[200px] top-10 h-10 rounded-md transition-all cursor-pointer p-4 z-10 ${opened ? 'w-[260px]' : 'md:w-11 w-6'}`}>
+        <div onClick={_ => setOpened(!opened)} className={`bg-[#ffd600] shadow-lg shadow-[#ffd600] fixed md:top-[25%] md:h-[200px] top-10 h-10 rounded-md transition-all cursor-pointer p-4 z-10 ${opened ? 'w-[260px]' : 'md:w-11 w-6'} md:flex hidden`}>
             {opened ?
                 <div className="flex flex-col gap-8 justify-center h-full">
                     <h3 className="font-inter font-semibold text-2xl md:block hidden">Garanta seus benefícios</h3>

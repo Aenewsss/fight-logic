@@ -23,9 +23,9 @@ export default function Top() {
         <section className="relative z-0 flex justify-center items-center">
             <Image unoptimized className="object-cover w-full h-screen" src={banner} width={300} height={100} alt="Banner" />
             <div className="absolute bg-black opacity-60 w-full h-full"></div>
-            <h1 className="absolute md:text-6xl text-4xl container text-center text-white font-bold font-questrial leading-[80px]">
-                Domine cada movimento.<br className="hidden md:flex" />
-                Supere os desafios.<br className="hidden md:flex"/>
+            <h1 className="absolute md:text-6xl text-4xl container md:text-center text-white font-bold font-questrial md:leading-[80px] leading-[50px] md:px-auto px-4">
+                Domine cada movimento.<br />
+                Supere os desafios.<br />
                 Sua jornada começa aqui.
             </h1>
         </section>

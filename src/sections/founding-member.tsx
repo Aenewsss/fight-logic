@@ -8,7 +8,7 @@ export default function FoundingMember() {
             <Image unoptimized className="w-full md:h-[338px] h-[600px] object-cover" src="/membros-fundadores.png" width={300} height={108} alt="Foto de fundo do time" />
             <div className="absolute flex flex-col gap-10 text-white items-center justify-center container text-center">
                 <h2 className="font-questrial md:text-[3.5rem] text-4xl">Benefícios exclusivos para membros fundadores</h2>
-                <p className="text-base font-semibold">
+                <p className="text-base text-justify font-semibold  md:px-0 px-4">
                     Treine de maneira mais inteligente e economize!
                     Os membros fundadores receberão um desconto vitalício
                     em nossa academia. Isso permite que você treine de forma

@@ -19,7 +19,7 @@ export default function Teams() {
 
     return (
         <section className="my-20">
-            <h2 className="md:text-[3.5rem] text-4xl font-questrial text-center">Equipes Parceiras F1ght Logic</h2>
+            <h2 className="md:text-[3.5rem] text-4xl font-questrial text-center">Equipes Parceiras Fight Logic</h2>
 
             {
                 teams.map((el, index) => (
@@ -37,7 +37,7 @@ export default function Teams() {
                 ))
             }
 
-            <div className="flex justify-center mt-32">
+            <div className="flex justify-center md:mt-32 mt-8">
                 <Link href="/matricula" className="bg-black text-white px-8 py-3 font-questrial text-2xl rounded-2xl">Matricular agora</Link>
             </div>
         </section>

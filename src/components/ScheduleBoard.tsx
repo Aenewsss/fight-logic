@@ -13,6 +13,7 @@ export default function ScheduleBoard() {
     useEffect(() => {
         async function getData() {
             const { data } = await scheduleService.getSchedules()
+            console.log(data)
             setSchedule(data)
         }
 
@@ -25,7 +26,7 @@ export default function ScheduleBoard() {
         }
 
         screenWidthListener()
-        
+
         window.addEventListener('resize', screenWidthListener)
 
         return () => {
@@ -35,48 +36,53 @@ export default function ScheduleBoard() {
 
 
     if (mobileScreen) return (
-        <div className="gap-4 bg-black text-white w-full p-4">
-            <div className="flex flex-col gap-2">
-                <h4>Domingo</h4>
-                <ul className="md:min-w-[140px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.keys(schedule.sunday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
-                </ul>
+        <div className="flex flex-col gap-4">
+            <div className="gap-4 bg-black text-white w-full p-4 rounded-md flex flex-col">
+                <div className="flex flex-col gap-2">
+                    <h4 className="border-b border-gray-700 pb-2">Domingo</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] font-inter">
+                        {Object.entries(schedule.sunday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2">
+                    <h4 className="border-b border-gray-700 pb-2">Segunda</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] font-inter">
+                        {Object.entries(schedule.monday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2">
+                    <h4 className="border-b border-gray-700 pb-2">Terça</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] font-inter">
+                        {Object.entries(schedule.tuesday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2">
+                    <h4 className="border-b border-gray-700 pb-2">Quarta</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] font-inter">
+                        {Object.entries(schedule.wednesday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2">
+                    <h4 className="border-b border-gray-700 pb-2">Quinta</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] font-inter">
+                        {Object.entries(schedule.thursday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2">
+                    <h4 className="border-b border-gray-700 pb-2">Sexta</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] font-inter">
+                        {Object.entries(schedule.friday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    </ul>
+                </div>
+                <div className="flex flex-col gap-2">
+                    <h4 className="border-b border-gray-700 pb-2">Sábado</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] font-inter">
+                        {Object.entries(schedule.saturday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    </ul>
+                </div>
             </div>
-            <div className="flex flex-col gap-2">
-                <h4>Segunda</h4>
-                <ul className="md:min-w-[140px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.keys(schedule.monday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
-                </ul>
-            </div>
-            <div className="flex flex-col gap-2">
-                <h4>Terça</h4>
-                <ul className="md:min-w-[140px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.keys(schedule.tuesday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
-                </ul>
-            </div>
-            <div className="flex flex-col gap-2">
-                <h4>Quarta</h4>
-                <ul className="md:min-w-[140px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.keys(schedule.wednesday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
-                </ul>
-            </div>
-            <div className="flex flex-col gap-2">
-                <h4>Quinta</h4>
-                <ul className="md:min-w-[140px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.keys(schedule.thursday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
-                </ul>
-            </div>
-            <div className="flex flex-col gap-2">
-                <h4>Sexta</h4>
-                <ul className="md:min-w-[140px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.keys(schedule.friday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
-                </ul>
-            </div>
-            <div className="flex flex-col gap-2">
-                <h4>Sábado</h4>
-                <ul className="md:min-w-[140px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.keys(schedule.saturday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
-                </ul>
+            <div className="flex justify-center">
+                <Link href="/matricula" className="bg-black text-white px-8 py-1 font-questrial text-lg rounded-md">Matricular agora</Link>
             </div>
         </div>
     )
