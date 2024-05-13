@@ -20,8 +20,14 @@ export default function Top() {
     }, []);
 
     return (
-        <section className="relative z-0">
+        <section className="relative z-0 flex justify-center items-center">
             <Image unoptimized className="object-cover w-full h-screen" src={banner} width={300} height={100} alt="Banner" />
+            <div className="absolute bg-black opacity-60 w-full h-full"></div>
+            <h1 className="absolute text-6xl container text-center text-white font-bold font-questrial leading-[80px]">
+                Domine cada movimento.<br />
+                Supere os desafios.<br/>
+                Sua jornada começa aqui.
+            </h1>
         </section>
     )
 }
