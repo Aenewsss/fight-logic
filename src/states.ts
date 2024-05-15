@@ -1,4 +1,4 @@
-import { IAbout, ISchedule, ITeam } from "./interfaces";
+import { IAbout, ISchedule, IStripeProducts, ITeam } from "./interfaces";
 
 export const ScheduleInitialState: ISchedule = {
     friday: [''],
@@ -21,3 +21,11 @@ export const AboutInitialState: IAbout = {
     image: '',
     text: ''
 }
+
+export const StripeProductsInitialState: IStripeProducts[] = [{
+    name: 'Jiu',
+    price: '100',
+    monthly: 100,
+    totalYear: 1200,
+    priceId: ''
+}]

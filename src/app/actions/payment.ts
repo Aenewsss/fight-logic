@@ -1,5 +1,8 @@
-import { redirect } from "next/navigation";
+'use server'
+import paymentService from "@/services/payment.service";
 
 export async function paymentBasicData(state:any, form:FormData) {
-    redirect('/pagamento')
+    const modality = form.get('modality').toString()
+    const email = form.get('email').toString()
+    return await paymentService.getPaymentSession(modality, email)
 }

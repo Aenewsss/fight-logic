@@ -38,3 +38,11 @@ export interface IAbout {
     text: string
     image: string
 }
+
+export interface IStripeProducts {
+    name: string
+    price: string
+    monthly: number
+    totalYear: number
+    priceId: string
+}
