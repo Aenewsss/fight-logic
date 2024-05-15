@@ -152,7 +152,7 @@ html {
 
 @media screen and (max-width: 768px){
     .navbar.animation-to-bottom {
-        transform: translateY(105%);
+        transform: translateY(-105%);
         animation: none;
     }
 }
