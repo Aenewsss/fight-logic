@@ -98,25 +98,25 @@ export default function ScheduleBoard() {
             </ul>
             <div className="flex min-h-[400px]">
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.keys(schedule.sunday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
+                    {Object.entries(schedule.sunday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.keys(schedule.monday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
+                    {Object.entries(schedule.monday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.keys(schedule.tuesday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
+                    {Object.entries(schedule.tuesday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.keys(schedule.wednesday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
+                    {Object.entries(schedule.wednesday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.keys(schedule.thursday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
+                    {Object.entries(schedule.thursday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.keys(schedule.friday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
+                    {Object.entries(schedule.friday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px]">
-                    {Object.keys(schedule.saturday).map((el, index) => <li className="text-center" key={index}>{el}h</li>)}
+                    {Object.entries(schedule.saturday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
             </div>
             <div className="flex justify-center">
