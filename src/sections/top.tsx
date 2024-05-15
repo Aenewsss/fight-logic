@@ -22,7 +22,7 @@ export default function Top() {
 
     return (
         <section className="relative z-0 flex justify-center items-center h-screen">
-            <Image unoptimized className="object-cover w-full h-screen" src={banner} width={900} height={1000} alt="Banner" />
+            <Image  unoptimized className="animation-opacity animation-delay-6 object-cover w-full h-screen" src={banner} width={900} height={1000} alt="Banner" />
             <div className="absolute bg-black opacity-60 w-full h-full"></div>
             <div className="absolute flex flex-col  md:px-auto px-4 gap-4">
                 <h1 className="md:text-6xl text-4xl relative container md:text-center text-white font-bold font-questrial md:leading-[80px] leading-[50px]">

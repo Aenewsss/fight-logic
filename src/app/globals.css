@@ -47,7 +47,7 @@ html {
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
     transform: translateX(100vw);
-    opacity: 1;
+    opacity: 0;
 }
 
 .animation-to-right {
@@ -56,24 +56,37 @@ html {
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
     transform: translateX(-100vw);
-    opacity: 1;
+    opacity: 0;
+}
+
+.animation-opacity {
+    animation-name: opacity;
+    animation-duration: .6s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 .animation-delay-1 {
     animation-delay: .5s;
 }
+
 .animation-delay-2 {
     animation-delay: 1s;
 }
+
 .animation-delay-3 {
     animation-delay: 1.5s;
 }
+
 .animation-delay-4 {
     animation-delay: 2s;
 }
+
 .animation-delay-5 {
     animation-delay: 2.5s;
 }
+
 .animation-delay-6 {
     animation-delay: 3s;
 }
@@ -81,19 +94,22 @@ html {
 @keyframes toLeft {
     from {
         transform: translateX(100vw);
-        /* opacity: 0; */
+        opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
 
     }
 }
+
 @keyframes toRight {
     from {
         transform: translateX(-100vw);
-        /* opacity: 0; */
+        opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
@@ -102,7 +118,7 @@ html {
 }
 
 
-@keyframes toTop{
+@keyframes toTop {
     from {
         transform: translateY(10vh);
         opacity: 0;
@@ -113,6 +129,7 @@ html {
         opacity: 1;
     }
 }
+
 @keyframes toBottom {
     from {
         transform: translateY(-10vw);
@@ -120,5 +137,22 @@ html {
 
     to {
         transform: translateY(0);
+    }
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .navbar.animation-to-bottom {
+        transform: 0;
+        animation: none;
     }
 }
