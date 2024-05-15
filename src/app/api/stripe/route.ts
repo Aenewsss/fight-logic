@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
                         ? Number(product.price.slice(0, product.price.length - 2))
                         : Number(product.price.slice(0, product.price.length - 2)) * 12
                 }))
-
+                
         return NextResponse.json({ data });
     } catch (err) {
         return NextResponse.json({ error: err.message });

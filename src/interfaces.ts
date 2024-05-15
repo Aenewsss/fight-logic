@@ -46,3 +46,12 @@ export interface IStripeProducts {
     totalYear: number
     priceId: string
 }
+
+export interface IStripeProductEdit {
+    name: string
+    image: string
+    price: string
+    recurring: string
+    monthly: string
+    priceId: string
+}
