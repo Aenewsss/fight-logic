@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html    {
+html {
     scroll-behavior: smooth;
     overflow-y: overlay;
+    overflow-x: hidden !important;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -22,4 +23,102 @@ html    {
 
 .font-questrial {
     font-family: var(--font-questrial) !important;
+}
+
+.animation-to-bottom {
+    transform: translateY(-100vw);
+    animation-name: toBottom;
+    animation-duration: .4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+.animation-to-top {
+    transform: translateY(-300vh);
+    animation-name: toTop;
+    animation-duration: .4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+.animation-to-left {
+    animation-name: toLeft;
+    animation-duration: .4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    transform: translateX(100vw);
+    opacity: 1;
+}
+
+.animation-to-right {
+    animation-name: toRight;
+    animation-duration: .4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    transform: translateX(-100vw);
+    opacity: 1;
+}
+
+.animation-delay-1 {
+    animation-delay: .5s;
+}
+.animation-delay-2 {
+    animation-delay: 1s;
+}
+.animation-delay-3 {
+    animation-delay: 1.5s;
+}
+.animation-delay-4 {
+    animation-delay: 2s;
+}
+.animation-delay-5 {
+    animation-delay: 2.5s;
+}
+.animation-delay-6 {
+    animation-delay: 3s;
+}
+
+@keyframes toLeft {
+    from {
+        transform: translateX(100vw);
+        /* opacity: 0; */
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+
+    }
+}
+@keyframes toRight {
+    from {
+        transform: translateX(-100vw);
+        /* opacity: 0; */
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+
+    }
+}
+
+
+@keyframes toTop{
+    from {
+        transform: translateY(10vh);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes toBottom {
+    from {
+        transform: translateY(-10vw);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }

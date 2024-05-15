@@ -43,7 +43,7 @@ export default function Navbar() {
     }, []);
 
     if (!pathname.includes('admin') && !pathname.includes('login') && !pathname.includes('cadastro') && !pathname.includes('matricula')) return (
-        <nav className={`flex justify-center fixed w-full z-20 ${navClass.marginTop} transition-all ${mobileScreen ? showMenu ? 'translate-y-0' : 'translate-y-[-105%]' : ''} `}>
+        <nav className={`animation-to-bottom flex justify-center fixed w-full z-20 ${navClass.marginTop} transition-all ${mobileScreen ? showMenu ? 'translate-y-0' : 'translate-y-[-105%]' : ''} `}>
             <div className={`${navClass.container && 'container'} ${!navClass.container && 'w-full'} ${navClass.bgColor} ${navClass.textColor} flex md:flex-row flex-col transition-all  justify-around shadow-md ${navClass.marginTop == 'mt-4' && 'shadow-gray-400'} md:items-center items-start md:p-0 p-4 font-questrial`}>
                 <p onClick={_ => setShowMenu(false)} className="cursor-pointer md:hidden flex text-lg">x</p>
                 <ul className="list-none flex md:flex-row flex-col gap-4 md:order-1 order-2 md:text-center">
