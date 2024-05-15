@@ -27,7 +27,7 @@ export default function Feedbacks() {
 
                 <div className="md:min-w-[260px] min-w-[160px] md:w-[260px] md:h-[362px] h-[200px] rounded-xl bg-black relative flex items-center justify-center md:ml-10 md:mt-0 mt-4">
                     <div className="md:w-[318px] md:h-[302px] rounded-xl bg-[#EDEDED] absolute flex flex-col items-center justify-center gap-2 md:pb-0 pb-2">
-                       <Image className="object-cover w-[184px] h-[196px] md:rounded-none rounded" unoptimized src={feedbacks[currentIndex].image || 'Marcéu'} width={184} height={196} alt="Foto do aluno" />
+                       <Image className="object-cover w-[184px] h-[196px] md:rounded-none rounded" unoptimized src={feedbacks[currentIndex].url || feedbacks[currentIndex].image || '/marceu'} width={184} height={196} alt="Foto do aluno" />
 
                         <h3 className="font-questrial">{feedbacks[currentIndex].name || ''}</h3>
                     </div>

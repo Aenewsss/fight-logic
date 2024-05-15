@@ -14,6 +14,7 @@ export interface IFeedback {
     image: string
     text: string
     name: string
+    url?:string
 }
 
 export interface ITeam {

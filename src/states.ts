@@ -31,5 +31,5 @@ export const StripeProductsInitialState: IStripeProducts[] = [{
 }]
 
 export const FeedbacksInitialState: IFeedback[] = [{
-    image: '/feedbacks/feedback-1.mp4', name: 'Daniel', text: ''
+    image: '/feedbacks/feedback-1.mp4', name: 'Daniel Victor', text: '', url:'/feedbacks/daniel.jpeg'
 }]
