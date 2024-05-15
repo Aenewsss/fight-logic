@@ -33,7 +33,7 @@ export default function Page() {
                                 <div className="bg-white flex justify-center items-center rounded-md min-w-[200px]">
                                     <Image unoptimized src={el.logo} width={172} height={172} alt={`Logo ${el.name}`} />
                                 </div>
-                                <p className="text-white font-inter text-justify px-4">{el.text}</p>
+                                <p className="text-white font-inter text-left px-4">{el.text}</p>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import { IAbout, ISchedule, IStripeProducts, ITeam } from "./interfaces";
+import { IAbout, IFeedback, ISchedule, IStripeProducts, ITeam } from "./interfaces";
 
 export const ScheduleInitialState: ISchedule = {
     friday: [''],
@@ -28,4 +28,8 @@ export const StripeProductsInitialState: IStripeProducts[] = [{
     monthly: 100,
     totalYear: 1200,
     priceId: ''
+}]
+
+export const FeedbacksInitialState: IFeedback[] = [{
+    image: '/feedbacks/feedback-1.mp4', name: 'Daniel', text: ''
 }]

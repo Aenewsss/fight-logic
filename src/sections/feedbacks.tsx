@@ -1,22 +1,24 @@
 'use client'
 import { IFeedback } from "@/interfaces";
 import feedbackService from "@/services/feedback.service";
+import { FeedbacksInitialState } from "@/states";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Feedbacks() {
-    const [feedbacks, setFeedbacks] = useState<IFeedback[]>([{ image: '', name: '', text: '' }]);
+    const [feedbacks, setFeedbacks] = useState<IFeedback[]>(FeedbacksInitialState);
     const [currentIndex, setCurrentIndex] = useState(0);
 
 
     useEffect(() => {
         async function getData() {
             const { data } = await feedbackService.getFeedbacks()
-            setFeedbacks(data)
+            setFeedbacks([...feedbacks, ...data])
         }
         getData()
     }, []);
+
 
     return (
         <section className="container mx-auto my-20">
@@ -25,8 +27,9 @@ export default function Feedbacks() {
 
                 <div className="md:min-w-[260px] min-w-[160px] md:w-[260px] md:h-[362px] h-[200px] rounded-xl bg-black relative flex items-center justify-center md:ml-10 md:mt-0 mt-4">
                     <div className="md:w-[318px] md:h-[302px] rounded-xl bg-[#EDEDED] absolute flex flex-col items-center justify-center gap-2 md:pb-0 pb-2">
-                        <Image className="object-cover w-[184px] h-[196px] md:rounded-none rounded" unoptimized src={feedbacks[currentIndex].image || 'Marcéu'} width={184} height={196} alt="Foto do aluno" />
-                        <h3 className="font-questrial">{feedbacks[currentIndex].name || 'Marcéu'}</h3>
+                       <Image className="object-cover w-[184px] h-[196px] md:rounded-none rounded" unoptimized src={feedbacks[currentIndex].image || 'Marcéu'} width={184} height={196} alt="Foto do aluno" />
+
+                        <h3 className="font-questrial">{feedbacks[currentIndex].name || ''}</h3>
                     </div>
                 </div>
 
@@ -34,7 +37,11 @@ export default function Feedbacks() {
                     <h2 className="md:text-[3.5rem] text-4xl z-10 text-black font-questrial hidden md:flex">Feedbacks dos nossos alunos</h2>
 
                     <div className="relative md:mt-10">
-                        <p className="md:text-start text-center">{feedbacks[currentIndex].text || 'Carregando texto'}</p>
+                    {
+                            feedbacks[currentIndex].image.includes('mp4')
+                                ? <video className="max-h-[400px] object-cover" src={feedbacks[currentIndex].image} controls></video>
+                                : <p className="md:text-start text-center">{feedbacks[currentIndex].text || 'Carregando texto'}</p>
+                        }
                         <Image className="hidden md:flex absolute -top-10 -left-[60px]" src="/icons/quote.svg" width={60} height={60} alt="Aspas" />
                         <Image className="hidden md:flex absolute -bottom-10 -right-[60px]" src="/icons/quote-inversa.svg" width={60} height={60} alt="Aspas invertidas" />
                     </div>
