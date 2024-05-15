@@ -60,7 +60,6 @@ export default function ProductForm({ id }: IProps) {
                 <select className="px-4 border rounded py-2 cursor-pointer" value={product.recurring} onChange={e => setProduct({ ...product, recurring: e.target.value })} name="recurring" id="recurring">
                     <option value="year">Anual</option>
                     <option value="monthly">Mensal</option>
-                    <option value="semi-annual">Semestral</option>
                 </select>
             </div>
             <div className="flex flex-col gap-2 w-full">

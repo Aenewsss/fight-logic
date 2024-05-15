@@ -10,7 +10,7 @@ export default function Page() {
             <p>Informe os valores dos planos de assinatura</p>
 
             <ProductsList />
-
+            <Link className=" bg-amber-400 px-3 py-1 rounded-md" href="/admin/pagamento/criar-produto">Criar novo produto</Link>
         </main>
     )
 }

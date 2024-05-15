@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Questrial, Inter } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "@/components/navbar";
@@ -8,7 +8,7 @@ import WhatsAppButton from "@/components/whatsapp-button";
 import BenefitsCard from "@/components/benefits-card";
 import ModalBenefits from "@/components/modal-benefits";
 
-const questrial = Questrial({ subsets: ['latin'], weight: '400', variable: "--font-questrial" });
+const questrial = Montserrat({ subsets: ['latin'], weight: '400', variable: "--font-questrial" });
 const inter = Inter({ subsets: ['latin'], weight: '400', variable: "--font-inter" });
 
 export const metadata: Metadata = {

@@ -41,9 +41,15 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
     try {
         const product = (await stripe.products.list()).data.find(el => el.default_price == params.id);
 
-        const deleted = await stripe.products.update(product.id, {
-            active: false
-        });
+        let deleted
+
+        try {
+            deleted = await stripe.products.del(product.id);
+        } catch (error) {
+            deleted = await stripe.products.update(product.id, {
+                active: false
+            });
+        }
 
         return NextResponse.json({ data: deleted });
     } catch (err) {
@@ -60,10 +66,28 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
         const monthly = form.get('price').toString()
 
         const product = (await stripe.products.list()).data.find(el => el.default_price == params.id);
-        const price = (await stripe.prices.list()).data.find(el => el.id == params.id)
 
-        // const updatedProduct = await stripe.products.update(product.id, { name });
-        // const updatedPrice = await stripe.prices.update(product.id, {  });
+        await stripe.products.update(product.id, {
+            active: false
+        });
+
+        await stripe.products.create({ name });
+
+        const calcAmount = (amount) => {
+            if (recurring == 'year') return amount * 12
+            else  return amount
+        }
+
+        await stripe.prices.create({
+            currency: 'brl',
+            unit_amount: calcAmount(monthly),
+            recurring: {
+                interval: recurring as any,
+            },
+            product_data: {
+                name,
+            },
+        });
 
         return NextResponse.json({ data: 'updated' });
     } catch (err) {

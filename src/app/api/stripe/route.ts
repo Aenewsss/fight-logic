@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
                         ? Number(product.price.slice(0, product.price.length - 2))
                         : Number(product.price.slice(0, product.price.length - 2)) * 12
                 }))
-                
+
         return NextResponse.json({ data });
     } catch (err) {
         return NextResponse.json({ error: err.message });
@@ -33,9 +33,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
     try {
-
         const body = await request.json()
-
         const session = await stripe.checkout.sessions.create({
             success_url: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true&session={CHECKOUT_SESSION_ID}`,
             line_items: [
@@ -50,7 +48,6 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json({ data: session });
     } catch (err) {
-        console.error(err.message)
-        return NextResponse.json({ error: "Error checkout session" });
+        return NextResponse.json({ error: err.message });
     }
 }

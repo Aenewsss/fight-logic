@@ -1,6 +1,7 @@
 'use client'
 
 import paymentService from "@/services/payment.service";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 interface IProps {
@@ -8,13 +9,17 @@ interface IProps {
 }
 
 export default function RemoveProductButton({ id }: IProps) {
+    const router = useRouter()
+    
     async function removeProduct() {
-        try {
-            await paymentService.deleteProduct(id)
-            toast('Produto removido', { type: "success" });
-        } catch (error) {
-            toast(error.message, { type: "error" });
-        }
+        paymentService.deleteProduct(id)
+            .then(_ => {
+                toast('Produto removido', { type: "success" });
+                router.push('/admin/pagamento')
+            })
+            .catch(e => {
+                toast(e.message, { type: "error" });
+            })
     }
 
     return (

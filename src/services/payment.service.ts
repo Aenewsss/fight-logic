@@ -22,6 +22,10 @@ class PaymentService {
     async updateProduct(priceId: string,form:FormData) {
         return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/${priceId}`, { method: "PUT", cache: 'no-cache',body: form })).json()
     }
+
+    async createProduct(form:FormData) {
+        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/create-product`, { method: "POST", cache: 'no-cache',body: form })).json()
+    }
 }
 
 const paymentService = new PaymentService()

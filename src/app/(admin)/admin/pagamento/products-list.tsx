@@ -8,7 +8,7 @@ export default async function ProductsList() {
     const { data }: { data: IStripeProducts[] } = await paymentService.getProducts()
 
     return (
-        <ul className="list-none mt-4 bg-white p-4 shadow-md shadow-black w-full">
+        <ul className="list-none my-4 bg-white p-4 shadow-md shadow-black w-full">
             {data.map((el, index) =>
                 <li key={index} className="flex justify-between">
                     <span>{el.name} - 12x de R${el.monthly}</span>

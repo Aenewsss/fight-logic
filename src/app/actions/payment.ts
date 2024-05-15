@@ -12,3 +12,7 @@ export async function updateProduct(state: any, form: FormData) {
 
     return await paymentService.updateProduct(id, form)
 }
+
+export async function createProduct(state: any, form: FormData) {
+    return await paymentService.createProduct(form)
+}
