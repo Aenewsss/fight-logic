@@ -7,7 +7,7 @@ class AboutService {
     async getAbout(): Promise<IResponse> {
         const aboutRef = ref(database, 'about/');
         const about = await get(aboutRef)
-        console.log(about.val())
+        
         if (!about.exists()) return { data: null, error: 'Sobre não encontrado' }
 
         return { error: null, data: about.val() }

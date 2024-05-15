@@ -13,7 +13,6 @@ export default function ScheduleBoard() {
     useEffect(() => {
         async function getData() {
             const { data } = await scheduleService.getSchedules()
-            console.log(data)
             setSchedule(data)
         }
 

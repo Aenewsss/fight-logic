@@ -11,7 +11,6 @@ export default function ContactForm() {
     useEffect(() => {
         if (state?.error) toast(state.error, { type: "error" });
         if (state?.data) toast('Mensagem enviada com sucesso', { type: "success" });
-        console.log(state)
     }, [state]);
 
 
