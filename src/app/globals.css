@@ -31,6 +31,7 @@ html {
     animation-duration: .4s;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 .animation-to-top {
@@ -39,6 +40,7 @@ html {
     animation-duration: .4s;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 .animation-to-left {
@@ -133,10 +135,12 @@ html {
 @keyframes toBottom {
     from {
         transform: translateY(-10vw);
+        opacity: 0;
     }
 
     to {
         transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -150,8 +154,10 @@ html {
     }
 }
 
-@media screen and (max-width: 768px){
-    .navbar, .nav.animation-to-bottom {
+@media screen and (max-width: 768px) {
+
+    .navbar,
+    .nav.animation-to-bottom {
         transform: translateY(-105%);
         animation: none;
     }
