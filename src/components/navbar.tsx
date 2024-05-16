@@ -43,7 +43,7 @@ export default function Navbar() {
     }, []);
 
     if (!pathname.includes('admin') && !pathname.includes('login') && !pathname.includes('cadastro') && !pathname.includes('matricula')) return (
-        <nav className={`navbar animation-to-bottom flex justify-center fixed w-full z-20 ${navClass.marginTop} transition-all ${mobileScreen ? showMenu ? 'translate-y-0' : 'translate-y-[-105%]' : ''} `}>
+        <nav className={`nav flex justify-center fixed w-full z-20 ${navClass.marginTop} transition-all ${mobileScreen ? showMenu ? 'translate-y-0' : 'translate-y-[-105%] navbar' : 'animation-to-bottom'} `}>
             <div className={`${navClass.container && 'container'} ${!navClass.container && 'w-full'} ${navClass.bgColor} ${navClass.textColor} flex md:flex-row flex-col transition-all  justify-around shadow-md ${navClass.marginTop == 'mt-4' && 'shadow-gray-400'} md:items-center items-start md:p-0 p-4 font-questrial`}>
                 <p onClick={_ => setShowMenu(false)} className="cursor-pointer md:hidden flex text-lg">x</p>
                 <ul className="list-none flex md:flex-row flex-col gap-4 md:order-1 order-2 md:text-center">
@@ -61,7 +61,7 @@ export default function Navbar() {
                     <li className="md:hidden hover:scale-105 transition-all"><Link href="/#diferenciais">Seja um membro fundador</Link></li>
                 </ul>
             </div>
-            {!showMenu && <div className="md:hidden absolute -bottom-16 left-4">
+            {!showMenu && <div className="md:hidden absolute -bottom-16 left-4 animation-to-bottom animation-delay-1">
                 <Image onClick={_ => setShowMenu(true)} className="shadow-black drop-shadow-[2px_2px_8px_rgba(0,0,0,1)] cursor-pointer" src={`${navClass.container ? "/icons/menu-white.svg" : "/icons/menu-white.svg"}`} width={30} height={30} alt="Ícone Menu" />
                 <div className="bg-yellow-400 rounded-full w-2 h-2 absolute -right-1 top-0 animate-pulse shadow-lg shadow-yellow-400"></div>
             </div>}
