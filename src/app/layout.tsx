@@ -29,7 +29,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <WhatsAppButton />
-        <BenefitsCard />
+        {/* <BenefitsCard /> */}
         <ModalBenefits />
       </body>
     </html>

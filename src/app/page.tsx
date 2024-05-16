@@ -11,8 +11,8 @@ export default function Home() {
     <main className="pb-10">
       <Top />
       <Diferentials />
-      <Feedbacks />
       <FoundingMember />
+      <Feedbacks />
       <Teams />
       <Schedule />
       <Contact />

@@ -1,4 +1,5 @@
 'use client'
+import Reveal from "@/app/hooks/Reveal";
 import { ISchedule } from "@/interfaces";
 import scheduleService from "@/services/schedule.service";
 import { ScheduleInitialState } from "@/states";
@@ -80,9 +81,11 @@ export default function ScheduleBoard() {
                     </ul>
                 </div>
             </div>
-            <div className="flex justify-center">
-                <Link href="/matricula" className="bg-black text-white px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
-            </div>
+            <Reveal animation="to-top">
+                <div className="flex justify-center">
+                    <Link href="/matricula" className="bg-black text-white px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
+                </div>
+            </Reveal>
         </div>
     )
     else return (
@@ -98,30 +101,32 @@ export default function ScheduleBoard() {
             </ul>
             <div className="flex min-h-[400px]">
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.entries(schedule.sunday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.sunday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.monday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.monday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.tuesday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.tuesday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.wednesday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.wednesday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.thursday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.thursday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.friday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.friday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px]">
-                    {Object.entries(schedule.saturday).map((el:any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.saturday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
                 </ul>
             </div>
-            <div className="flex justify-center">
-                <Link href="/matricula" className="bg-white text-black px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
-            </div>
+            <Reveal animation="to-top">
+                <div className="flex justify-center">
+                    <Link href="/matricula" className="bg-white text-black px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
+                </div>
+            </Reveal>
         </div>
     )
 }

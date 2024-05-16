@@ -20,15 +20,12 @@ export default function Diferentials() {
     }, []);
 
     return (
-        <section className="my-8 relative md:px-0 px-4" id="diferenciais">
-
-            <div className="absolute top-0 left-0 w-full flex items-center">
-                <h2 className="md:text-[3.5rem] text-4xl z-10 text-white pl-8 font-questrial">Por que escolher <br />a Fight Logic?</h2>
-                <Image className="absolute" src="/blob.svg" width={500} height={500} alt="Blob" />
-            </div>
-            <div className="container mx-auto">
+        <section className="my-10 md:px-0 px-4" id="diferenciais">
+            <Reveal animation="to-top">
+                <h2 className="md:text-[3.5rem] text-4xl z-10 text-black text-center pl-8 font-questrial">Por que escolher a Fight Logic?</h2>
+            </Reveal>
+            <div className="container mx-auto mt-10">
                 <div className="grid md:grid-cols-3 justify-items-center gap-8">
-                    <div className="min-h-[200px]"></div>
                     <Reveal animation="to-top">
                         <div className="flex flex-col gap-4 items-center max-w-[400px]">
                             <Image src="/icons/experencia-10.svg" width={102} height={102} alt="Ícone experiência" />
@@ -43,9 +40,6 @@ export default function Diferentials() {
                             <p className="text-center font-questrial">{!diferentials ? 'carregando' : diferentials[1].description}</p>
                         </div>
                     </Reveal>
-                </div>
-
-                <div className="grid md:grid-cols-3 mt-10 justify-items-center gap-8">
                     <Reveal animation="to-top">
                         <div className="flex flex-col gap-4 items-center max-w-[400px]">
                             <Image src="/icons/iniciantes.svg" width={102} height={102} alt="Ícone iniciantes" />
@@ -53,6 +47,10 @@ export default function Diferentials() {
                             <p className="text-center font-questrial">{!diferentials ? 'carregando' : diferentials[2].description}</p>
                         </div>
                     </Reveal>
+                </div>
+
+                <div className="grid md:grid-cols-3 mt-10 justify-items-center gap-8">
+
                     <Reveal animation="to-top">
                         <div className="flex flex-col gap-4 items-center max-w-[400px]">
                             <Image src="/icons/pedagogico.svg" width={102} height={102} alt="Ícone abordagem pedagógica" />
@@ -67,8 +65,6 @@ export default function Diferentials() {
                             <p className="text-center font-questrial">{!diferentials ? 'carregando' : diferentials[4].description}</p>
                         </div>
                     </Reveal>
-                </div>
-                <div className="flex flex-col items-center justify-center mt-10 gap-8">
                     <Reveal animation="to-top">
                         <div className="flex flex-col gap-4 items-center max-w-[400px]">
                             <Image src="/icons/familia.svg" width={102} height={102} alt="Ícone família" />
@@ -76,9 +72,12 @@ export default function Diferentials() {
                             <p className="text-center font-questrial">{!diferentials ? 'carregando' : diferentials[5].description}</p>
                         </div>
                     </Reveal>
-
-                    <Link href="/matricula" className="bg-black text-white px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
                 </div>
+                <Reveal animation="to-top">
+                    <div className="flex flex-col items-center justify-center mt-10 gap-8">
+                        <Link href="/matricula" className="bg-black text-white px-8 py-1 font-questrial text-lg rounded-md transition-all hover:scale-105">Matricular agora</Link>
+                    </div>
+                </Reveal>
             </div>
         </section>
     )
