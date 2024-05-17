@@ -21,7 +21,7 @@ export default function Teams() {
     return (
         <section className="my-32">
             <Reveal animation="to-top">
-                <h2 className="md:text-[3.5rem] text-4xl font-questrial text-center">Equipes Parceiras Fight Logic</h2>
+                <h2 className="md:text-[3.5rem] text-4xl font-questrial text-center leading-[3.5rem]">Equipes Parceiras<br/>Fight Logic</h2>
             </Reveal>
 
             {
