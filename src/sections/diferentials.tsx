@@ -22,7 +22,7 @@ export default function Diferentials() {
     return (
         <section className="my-10 md:px-0 px-4" id="diferenciais">
             <Reveal animation="to-top">
-                <h2 className="md:text-[3.5rem] text-4xl z-10 text-black text-center pl-8 font-questrial    leading-[3.5rem]">Por que escolher<br/>a Fight Logic?</h2>
+                <h2 className="md:text-[3.5rem] text-4xl z-10 text-black text-center font-questrial    leading-[3.5rem]">Por que escolher<br />a Fight Logic?</h2>
             </Reveal>
             <div className="container mx-auto mt-10">
                 <div className="grid md:grid-cols-3 justify-items-center gap-8">

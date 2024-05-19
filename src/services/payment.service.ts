@@ -7,8 +7,8 @@ class PaymentService {
         return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/${priceId}`, { method: "GET", cache: 'no-cache' })).json()
     }
 
-    async getPaymentSession(priceId: string, customer_email: string) {
-        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe`, { method: "POST", cache: 'no-cache', body: JSON.stringify({ priceId, customer_email }) })).json()
+    async getPaymentSession(priceId: string, customer_email: string, name: string, phone: string) {
+        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe`, { method: "POST", cache: 'no-cache', body: JSON.stringify({ priceId, customer_email, name, phone }) })).json()
     }
 
     async expireSession(sessionId: string) {
@@ -19,12 +19,12 @@ class PaymentService {
         return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/${priceId}`, { method: "DELETE", cache: 'no-cache' })).json()
     }
 
-    async updateProduct(priceId: string,form:FormData) {
-        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/${priceId}`, { method: "PUT", cache: 'no-cache',body: form })).json()
+    async updateProduct(priceId: string, form: FormData) {
+        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/${priceId}`, { method: "PUT", cache: 'no-cache', body: form })).json()
     }
 
-    async createProduct(form:FormData) {
-        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/create-product`, { method: "POST", cache: 'no-cache',body: form })).json()
+    async createProduct(form: FormData) {
+        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/create-product`, { method: "POST", cache: 'no-cache', body: form })).json()
     }
 }
 

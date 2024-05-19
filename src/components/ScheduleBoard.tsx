@@ -41,43 +41,71 @@ export default function ScheduleBoard() {
                 <div className="flex flex-col gap-2">
                     <h4 className="border-b border-gray-700 pb-2">Domingo</h4>
                     <ul className="md:min-w-[140px] min-w-[60px] font-inter">
-                        {Object.entries(schedule.sunday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                        {Object.entries(schedule.sunday).map((el: any, index) =>
+                            <li className="text-center" key={index}>
+                                <Link href="/matricula">{el[1]} - {el[0]}h</Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2">
                     <h4 className="border-b border-gray-700 pb-2">Segunda</h4>
                     <ul className="md:min-w-[140px] min-w-[60px] font-inter">
-                        {Object.entries(schedule.monday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                        {Object.entries(schedule.monday).map((el: any, index) =>
+                            <li className="text-center" key={index}>
+                                <Link href="/matricula">{el[1]} - {el[0]}h</Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2">
                     <h4 className="border-b border-gray-700 pb-2">Terça</h4>
                     <ul className="md:min-w-[140px] min-w-[60px] font-inter">
-                        {Object.entries(schedule.tuesday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                        {Object.entries(schedule.tuesday).map((el: any, index) =>
+                            <li className="text-center" key={index}>
+                                <Link href="/matricula">{el[1]} - {el[0]}h</Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2">
                     <h4 className="border-b border-gray-700 pb-2">Quarta</h4>
                     <ul className="md:min-w-[140px] min-w-[60px] font-inter">
-                        {Object.entries(schedule.wednesday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                        {Object.entries(schedule.wednesday).map((el: any, index) =>
+                            <li className="text-center" key={index}>
+                                <Link href="/matricula">{el[1]} - {el[0]}h</Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2">
                     <h4 className="border-b border-gray-700 pb-2">Quinta</h4>
                     <ul className="md:min-w-[140px] min-w-[60px] font-inter">
-                        {Object.entries(schedule.thursday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                        {Object.entries(schedule.thursday).map((el: any, index) =>
+                            <li className="text-center" key={index}>
+                                <Link href="/matricula">{el[1]} - {el[0]}h</Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2">
                     <h4 className="border-b border-gray-700 pb-2">Sexta</h4>
                     <ul className="md:min-w-[140px] min-w-[60px] font-inter">
-                        {Object.entries(schedule.friday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                        {Object.entries(schedule.friday).map((el: any, index) =>
+                            <li className="text-center" key={index}>
+                                <Link href="/matricula">{el[1]} - {el[0]}h</Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2">
                     <h4 className="border-b border-gray-700 pb-2">Sábado</h4>
                     <ul className="md:min-w-[140px] min-w-[60px] font-inter">
-                        {Object.entries(schedule.saturday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                        {Object.entries(schedule.saturday).map((el: any, index) =>
+                            <li className="text-center" key={index}>
+                                <Link href="/matricula">{el[1]} - {el[0]}h</Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </div>
@@ -101,25 +129,53 @@ export default function ScheduleBoard() {
             </ul>
             <div className="flex min-h-[400px]">
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A] font-inter">
-                    {Object.entries(schedule.sunday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.sunday).map((el: any, index) =>
+                        <li className="text-center" key={index}>
+                            <Link href='/matricula'>{el[1]} - {el[0]}h</Link>
+                        </li>
+                    )}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.monday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.monday).map((el: any, index) =>
+                        <li className="text-center" key={index}>
+                            <Link href='/matricula'>{el[1]} - {el[0]}h</Link>
+                        </li>
+                    )}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.tuesday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.tuesday).map((el: any, index) =>
+                        <li className="text-center" key={index}>
+                            <Link href='/matricula'>{el[1]} - {el[0]}h</Link>
+                        </li>
+                    )}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.wednesday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.wednesday).map((el: any, index) =>
+                        <li className="text-center" key={index}>
+                            <Link href='/matricula'>{el[1]} - {el[0]}h</Link>
+                        </li>
+                    )}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.thursday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.thursday).map((el: any, index) =>
+                        <li className="text-center" key={index}>
+                            <Link href='/matricula'>{el[1]} - {el[0]}h</Link>
+                        </li>
+                    )}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px] border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.friday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.friday).map((el: any, index) =>
+                        <li className="text-center" key={index}>
+                            <Link href='/matricula'>{el[1]} - {el[0]}h</Link>
+                        </li>
+                    )}
                 </ul>
                 <ul className="lg:min-w-[140px] md:min-w-[110px] min-w-[60px]">
-                    {Object.entries(schedule.saturday).map((el: any, index) => <li className="text-center" key={index}>{el[1]} - {el[0]}h</li>)}
+                    {Object.entries(schedule.saturday).map((el: any, index) =>
+                        <li className="text-center" key={index}>
+                            <Link href='/matricula'>{el[1]} - {el[0]}h</Link>
+                        </li>
+                    )}
                 </ul>
             </div>
             <Reveal animation="to-top">

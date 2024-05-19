@@ -30,10 +30,11 @@ export default function ModalBenefits() {
                     Os membros fundadores receberão um <span className="font-extrabold">desconto vitalício&nbsp;</span>
                     em nossa academia.
                 </p>
-                <Link onClick={removeModal} href='/#fundador' className="bg-white md:px-2 md:py-3 font-inter rounded-xl absolute bottom-10 text-center z-10 hover:scale-105 transition-all shadow-md shadow-white">
+                <Link onClick={removeModal} href='/#fundador' className="bg-white px-2 py-3 font-inter rounded-xl absolute bottom-10 text-center z-10 hover:scale-105 transition-all shadow-md shadow-white">
                     Seja um membro fundador
                 </Link>
             </div>
+            <p onClick={_ => setShow(false)} className="absolute top-10 right-10 text-white cursor-pointer">Fechar X</p>
         </div>
     )
 }

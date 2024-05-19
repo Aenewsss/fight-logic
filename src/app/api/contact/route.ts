@@ -38,9 +38,9 @@ export async function POST(request: NextRequest) {
             `,
         })
 
+        
+
         return NextResponse.json({ data: mail, error: null })
-
-
 
     } catch (error) {
         return NextResponse.json({ data: null, error: error.message })
