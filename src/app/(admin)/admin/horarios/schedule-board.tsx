@@ -53,7 +53,7 @@ export default function ScheduleBoard() {
                         <th>Quinta</th>
                         <th>Sexta</th>
                         <th>Sábado</th>
-                        <th>Domingo</th>
+                        {/* <th>Domingo</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -64,7 +64,7 @@ export default function ScheduleBoard() {
                         <td>{Object.keys(schedules.thursday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('thursday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
                         <td>{Object.keys(schedules.friday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('friday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
                         <td>{Object.keys(schedules.saturday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('saturday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
-                        <td>{Object.keys(schedules.sunday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('sunday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
+                        {/* <td>{Object.keys(schedules.sunday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('sunday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td> */}
                     </tr>
                 </tbody>
             </table>
