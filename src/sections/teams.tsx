@@ -25,7 +25,7 @@ export default function Teams() {
             </Reveal>
 
             {
-                teams.map((el, index) => (
+                teams?.map((el, index) => (
                     <div key={index} className="mt-10 flex md:flex-nowrap flex-wrap shadow-black shadow-md">
                         <div className="md:w-1/2 w-full">
                             <Reveal animation="opacity">

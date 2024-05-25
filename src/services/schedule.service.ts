@@ -29,10 +29,13 @@ class ScheduleService {
             const dbRef = ref(database, `schedule/${id}`)
 
             const schedule = await get(dbRef)
-            const updatedSchedule = Object.keys(schedule.val()).filter(el => el != hour)
+            const updatedSchedule = schedule.val()
 
+            delete updatedSchedule[hour]
+            
+            console.log(updatedSchedule, id)
             if (updatedSchedule.length == 0) await set(dbRef, '')
-            else await set(dbRef, { updatedSchedule })
+            else set(dbRef, updatedSchedule)
 
             return { error: null, data: true }
         } catch (error: any) {

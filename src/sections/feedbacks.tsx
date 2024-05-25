@@ -15,7 +15,7 @@ export default function Feedbacks() {
     useEffect(() => {
         async function getData() {
             const { data } = await feedbackService.getFeedbacks()
-            setFeedbacks([...feedbacks, ...data])
+            if (data) setFeedbacks([...feedbacks, ...data])
         }
         getData()
     }, []);
@@ -33,7 +33,7 @@ export default function Feedbacks() {
     return (
         <section className="container mx-auto my-20">
             <Reveal animation="to-top">
-                <h2 className="md:text-[3.5rem] text-4xl z-10 text-black font-questrial text-center p-5 leading-[3.5rem]">Feedbacks dos<br/>nossos alunos</h2>
+                <h2 className="md:text-[3.5rem] text-4xl z-10 text-black font-questrial text-center p-5 leading-[3.5rem]">Feedbacks dos<br />nossos alunos</h2>
             </Reveal>
             <div className="flex md:flex-nowrap flex-wrap gap-10 justify-center mt-10 relative items-center">
                 <p onClick={prevFeedback} className="text-7xl fw-bold absolute cursor-pointer transition-all hover:text-6xl left-10 scale-[-1]">❯</p>

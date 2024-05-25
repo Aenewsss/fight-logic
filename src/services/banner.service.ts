@@ -1,6 +1,6 @@
 import { database, storage } from "@/app/lib/firebase";
 import { IResponse } from "@/interfaces";
-import { get, ref, set } from "firebase/database";
+import { get, ref, set, update } from "firebase/database";
 import { deleteObject, ref as storageRef, uploadBytes } from "firebase/storage";
 
 
@@ -30,7 +30,7 @@ class BannerService {
 
         const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${metadata.bucket}/o/banner%2F${metadata.name}?alt=media`
 
-        await set(ref(database), { banner: imageUrl })
+        await update(ref(database), { banner: imageUrl })
 
         return { data: imageUrl, error: null }
     }

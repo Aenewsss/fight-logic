@@ -34,6 +34,7 @@ export default function ScheduleBoard() {
         }
     }, []);
 
+    if(!schedule) return <p>Grade horária indisponível</p>
 
     if (mobileScreen) return (
         <div className="flex flex-col gap-4  w-full">
