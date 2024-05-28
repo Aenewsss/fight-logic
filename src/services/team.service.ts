@@ -68,9 +68,14 @@ class TeamService {
 
             if (!logoFile.name && !teamFile.name) {
                 const dbRef = ref(database, `teams/${id}`)
+
+                const currentTeam = (await get(dbRef)).val()
+
                 await update(dbRef, {
                     text,
                     name,
+                    image: currentTeam.image,
+                    logo: currentTeam.logo
                 })
             } else if (logoFile.name) {
                 const imgRef = ref(database, `teams/${id}`)

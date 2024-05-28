@@ -33,7 +33,7 @@ class AboutService {
 
             return { data: about.val(), error: null }
         } else {
-            await update(ref(database, 'about/'), { text })
+            await update(ref(database, 'about/'), { text, image: about.val().image })
             return { data: true, error: null }
         }
     }
