@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
         const data = productsData
             .filter(el => el.active)
             .map(el => ({ name: el.name, price: el.default_price }))
-            .map(product => ({ ...product, price: pricesData.find(priceData => priceData.id == product.price).unit_amount_decimal, recurring: pricesData.find(priceData => priceData.id == product.price).recurring.interval, priceId: pricesData.find(priceData => priceData.id == product.price).id }))
+            .map(product => ({ ...product, price: pricesData.find(priceData => priceData.id == product.price).unit_amount_decimal, recurring: pricesData.find(priceData => priceData.id == product.price)?.recurring?.interval, priceId: pricesData.find(priceData => priceData.id == product.price).id }))
             .map(product => (
                 {
                     ...product,
@@ -35,6 +35,9 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
+
+        const price = await stripe.prices.retrieve(body.priceId)
+
         const session = await stripe.checkout.sessions.create({
             success_url: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true&session={CHECKOUT_SESSION_ID}`,
             line_items: [
@@ -43,7 +46,7 @@ export async function POST(request: NextRequest) {
                     quantity: 1,
                 },
             ],
-            mode: 'subscription',
+            mode: price.recurring ? 'subscription' : 'payment',
             customer_email: body.customer_email
         });
 

@@ -9,7 +9,7 @@ export default function Cards() {
             <Card link="equipes-parceiras" title="Equipes Parceiras" description="Apresente as empresas ou equipes parceiras da Fight Logic, reforçando nossas parcerias estratégicas" image="/cards/card-equipe.jpeg"/>
             <Card link="horarios" title="Horários e Modalidades" description=" Informe os horários de funcionamento da Fight Logic para que os alunos saibam quando podem participar das aulas" image="/cards/card-calendar.jpg"/>
             <Card link="sobre-nos" title="Sobre a Fight Logic" description="Conheça mais sobre a história, missão e equipe da Fight Logic, entendendo nossa filosofia e valores" image="/cards/card-sobre.png"/>
-            <Card link="pagamento" title="Área de Pagamentos" description="Informe os valores dos planos de assinatura da Fight Logic para que os alunos saibam as opções disponíveis" image="/cards/card-pagamento.jpg"/>
+            {/* <Card link="pagamento" title="Área de Pagamentos" description="Informe os valores dos planos de assinatura da Fight Logic para que os alunos saibam as opções disponíveis" image="/cards/card-pagamento.jpg"/> */}
         </section>
     )
 }

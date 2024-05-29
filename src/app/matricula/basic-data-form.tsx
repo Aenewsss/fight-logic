@@ -55,7 +55,7 @@ export default function BasicDataForm() {
                     <label htmlFor="title">Você quer se matricular em qual modalidade?</label>
                     <select required className="px-4 border rounded py-2 cursor-pointer" name="modality" id="modality">
                         {products?.map((el, index) =>
-                            <option key={index} value={el.priceId}>{el.name} - 12x de R${el.monthly}</option>
+                            <option key={index} value={el.priceId}>{el.name} - R${el.monthly}</option>
                         )}
                     </select>
                 </div>
