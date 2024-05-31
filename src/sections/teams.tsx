@@ -21,12 +21,12 @@ export default function Teams() {
     return (
         <section className="my-32">
             <Reveal animation="to-top">
-                <h2 className="md:text-[3.5rem] text-4xl font-questrial text-center leading-[3.5rem]">Equipes Parceiras<br/>Fight Logic</h2>
+                <h2 className="md:text-[3.5rem] text-4xl font-questrial text-center leading-[3.5rem] mb-10">Equipes Parceiras<br/>Fight Logic</h2>
             </Reveal>
 
             {
                 teams?.map((el, index) => (
-                    <div key={index} className="mt-10 flex md:flex-nowrap flex-wrap shadow-black shadow-md">
+                    <div key={index} className={`flex md:flex-nowrap flex-wrap shadow-black shadow-md ${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                         <div className="md:w-1/2 w-full">
                             <Reveal animation="opacity">
                                 <Image unoptimized className="w-full max-h-[400px] object-cover" src={el.image} width={400} height={300} alt={`Foto do time ${el.name}`} />
