@@ -1,6 +1,5 @@
 'use client'
 import { privateClass } from "@/app/actions/private-class";
-import aboutService from "@/services/about.service";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { ToastContainer, toast } from 'react-toastify';

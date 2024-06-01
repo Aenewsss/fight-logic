@@ -1,7 +1,21 @@
+'use client'
+
+import privateClassService from "@/services/private-class.service";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Page() {
+
+    const [text, setText] = useState('');
+    
+    useEffect(() => {
+        async function getData() {
+            setText((await privateClassService.getPrivateClassText()).data)
+        }
+        getData()
+    }, []);
+    
     return (
         <main className="container mx-auto md:pt-32 pt-10 pb-10  md:px-0 px-4 flex flex-col gap-8">
             <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center">Aulas Particulares Fight Logic</h1>
@@ -13,12 +27,7 @@ export default function Page() {
                 </div>
                 <div className="flex flex-col gap-4 md:w-1/2">
                     <h2 className="font-medium md:text-3xl text-xl">Qual é a vantagem de fazer aulas particulares?</h2>
-                    <p className="md:text-xl">
-                        Assim como um personal trainer, uma aula particular vai te proporcionar um jogo
-                        de jiu-jitsu especifico de acordo com seu biotipo e predisposição de movimento
-                        facilitando assim sua evolução em todos os aspectos.
-                        As aulas são montadas e planejadas por uma equipe pedagógica que adequa a metodologia perfeita ao aluno
-                    </p>
+                    <p className="md:text-xl">{text || 'carregando...'}</p>
                     <div className="md:flex hidden">
                         <Image unoptimized className="object-cover w-1/2 max-h-[500px]" src="/private/marceu.jpg" width={300} height={500} alt="foto aula paricular" />
                         <Image unoptimized className="object-cover w-1/2 max-h-[500px]" src="/private/rakel.jpeg" width={300} height={500} alt="foto aula paricular" />
