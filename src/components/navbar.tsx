@@ -50,6 +50,7 @@ export default function Navbar() {
                     <li className="hover:scale-105 transition-all"><Link href="/quem-somos">Quem somos</Link></li>
                     <li className="hover:scale-105 transition-all"><Link href="/aulas-particulares">Aula Particular</Link></li>
                     <li className="hover:scale-105 transition-all"><Link href="/horarios">Horários</Link></li>
+                    <li className="hover:scale-105 transition-all"><Link href="/#diferenciais">Diferenciais</Link></li>
                 </ul>
                 <Link href="/" className="md:order-2 order-1">
                     <Image src={`${navClass.container ? '/logo-amarela-dark.png' : '/logo-branca.png'}`} width={navClass.container ? 106 : 76} height={38} alt="Logo Fight Logic" />
@@ -57,6 +58,7 @@ export default function Navbar() {
                 <ul className="list-none flex md:flex-row flex-col md:gap-10 gap-4 order-3 md:mt-0 mt-4 md:text-center">
                     <li className="hover:scale-105 transition-all"><Link href="/equipes-parceiras">Equipes</Link></li>
                     <li className="after:bg-amber-400 hover:scale-105 transition-all after:absolute after:w-full after:h-[2px] after:rounded after:drop-shadow-lg  after:-bottom-0 after:left-0 after:shadow-md after:shadow-amber-500 after:animate-pulse relative"><Link href="/matricula">Faça parte do time</Link></li>
+                    <li className="hover:scale-105 transition-all"><Link href="/competicoes">Competições</Link></li>
                     <li className="hover:scale-105 transition-all"><Link target="_blank" href="https://api.whatsapp.com/send?phone=5561993664879&amp;text=Olá, venho através do site e tenho interesse em fazer parte do time Fight Logic.">Contato</Link></li>
 
                     {/* <li className="md:hidden hover:scale-105 transition-all"><Link href="/#diferenciais">Seja um membro fundador</Link></li> */}

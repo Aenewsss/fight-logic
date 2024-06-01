@@ -3,7 +3,7 @@ import ContactForm from "@/components/contact-form";
 
 export default function Contact() {
     return (
-        <section className="relative flex justify-center md:min-h-[600px] min-h-[800px]">
+        <section className="relative flex justify-center md:min-h-[600px] min-h-[700px]">
             <div id="contato" className="container mx-auto absolute md:-top-32 -top-10 rounded-[40px] shadow-md shadow-slate-400 md:p-16 p-4 bg-white">
                 <div className="flex gap-8 md:flex-nowrap flex-wrap">
                     <div className="flex flex-col gap-4 md:w-3/4">

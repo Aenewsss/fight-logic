@@ -7,6 +7,7 @@ import Teams from "@/sections/teams";
 import Top from "@/sections/top";
 import Gallery from "@/sections/gallery";
 import PrivateClass from "@/sections/private-class";
+import Competition from "@/sections/competition";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Teams />
       <Schedule />
       <Contact />
+      <Competition />
     </main>
   );
 }
