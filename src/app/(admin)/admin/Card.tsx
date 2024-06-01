@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-type TLink = 'diferenciais' | 'sobre-nos' | 'feedbacks' | 'horarios' | 'pagamento' | 'banner' | 'equipes-parceiras'
+type TLink = 'diferenciais' | 'sobre-nos' | 'feedbacks' | 'horarios' | 'pagamento' | 'banner' | 'equipes-parceiras' | 'aula-particular'
 
 interface IProps {
     title: string
