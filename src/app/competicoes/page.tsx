@@ -31,7 +31,7 @@ export default function Page() {
                 <p className="md:w-1/2 text-xl">{text || 'carregando..'}</p>
             </div>
 
-            <div className="flex flex-col gap-4 flex-wrap">
+            <div className="flex gap-4 flex-wrap">
                 <Image unoptimized className="object-cover w-full max-h-[400px]" src="/competicoes/comp6.jpeg" width={300} height={500} alt="foto competição 1" />
                 <Image unoptimized className="object-cover w-full max-h-[400px]" src="/competicoes/comp7.jpeg" width={300} height={500} alt="foto competição 1" />
                 <Image unoptimized className="object-cover w-full max-h-[400px]" src="/competicoes/comp8.jpeg" width={300} height={500} alt="foto competição 1" />
