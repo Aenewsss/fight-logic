@@ -25,7 +25,7 @@ export default function Top() {
             <Image unoptimized className="animation-opacity animation-delay-5 object-cover w-full h-screen" src={banner} width={900} height={1000} alt="Banner" />
             <div className="absolute bg-black opacity-60 w-full h-full"></div>
             <div className="absolute flex flex-col  md:px-auto px-4 gap-4 md:items-center">
-                <Image className="-mb-4" unoptimized src='/logo-branca.png' width={212} height={58} alt="Logo Fight Logic" />
+                <Image className="-mb-4 animation-opacity" unoptimized src='/logo-branca.png' width={160} height={58} alt="Logo Fight Logic" />
                 <h1 className="md:text-6xl text-4xl relative container md:text-center text-white font-bold font-questrial md:leading-[80px] leading-[50px]">
                     <p className="animation-to-right animation-delay-1">Domine cada movimento.</p>
                     <p className="animation-to-left animation-delay-2">Supere os desafios.</p>

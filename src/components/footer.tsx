@@ -8,7 +8,9 @@ export default function Footer() {
     if (!pathname.includes('admin') && !pathname.includes('login') && !pathname.includes('cadastro')) return (
         <footer className="py-8 bg-black flex flex-col gap-10 md:px-0 px-4">
             <div className="flex flex-wrap md:justify-between justify-center container mx-auto gap-4">
-                <Image className="object-contain md:order-1 order-2" src="/logo-branca.png" width={106} height={38} alt="Logo branca Fight Logic" />
+                <Link href='/'>
+                    <Image className="object-contain md:order-1 order-2" src="/logo-branca.png" width={106} height={38} alt="Logo branca Fight Logic" />
+                </Link>
                 <ul className="list-none flex justify-center flex-wrap gap-5 md:order-2 order-1 text-white font-questrial items-center text-sm">
                     <li><Link href="/horarios">Nossos horários</Link></li>
                     <li><Link href="/equipes-parceiras">Equipes parceiras</Link></li>
