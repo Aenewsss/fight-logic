@@ -38,24 +38,37 @@ export async function POST(request: NextRequest) {
 
         const price = await stripe.prices.retrieve(body.priceId)
 
-        const session = await stripe.checkout.sessions.create({
-            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true&session={CHECKOUT_SESSION_ID}`,
-            line_items: [
-                {
-                    price: body.priceId,
-                    quantity: 1,
-                },
-            ],
-            mode: price.recurring ? 'subscription' : 'payment',
-            customer_email: body.customer_email,
-            payment_method_options: {
-                card: {
-                    installments: {
-                        enabled: price.recurring ? false : true
+        const session = price.recurring
+            ? await stripe.checkout.sessions.create({
+                success_url: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true&session={CHECKOUT_SESSION_ID}`,
+                line_items: [
+                    {
+                        price: body.priceId,
+                        quantity: 1,
+                    },
+                ],
+                mode: 'subscription',
+                customer_email: body.customer_email,
+            })
+            : await stripe.checkout.sessions.create({
+                success_url: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true&session={CHECKOUT_SESSION_ID}`,
+                line_items: [
+                    {
+                        price: body.priceId,
+                        quantity: 1,
+                    },
+                ],
+                mode: 'payment',
+                customer_email: body.customer_email,
+                payment_method_options: {
+                    card: {
+                        installments: {
+                            enabled: true
+                        }
                     }
                 }
-            }
-        });
+            })
+
 
         const transporter = nodemailer.createTransport({
             service: "Gmail",
