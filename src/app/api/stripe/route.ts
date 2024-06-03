@@ -47,7 +47,14 @@ export async function POST(request: NextRequest) {
                 },
             ],
             mode: price.recurring ? 'subscription' : 'payment',
-            customer_email: body.customer_email
+            customer_email: body.customer_email,
+            payment_method_options: {
+                card: {
+                    installments: {
+                        enabled: true
+                    }
+                }
+            }
         });
 
         const transporter = nodemailer.createTransport({
