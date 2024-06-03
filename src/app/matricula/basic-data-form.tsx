@@ -38,18 +38,18 @@ export default function BasicDataForm() {
             <div className="flex justify-between gap-8 md:flex-nowrap flex-wrap">
                 <div className="flex flex-col gap-2 w-full">
                     <label htmlFor="title">Qual é o seu nome?</label>
-                    <input required placeholder="Nome completo" className={`px-4 border rounded py-2 ${products?.length < 2 && 'animate-pulse  opacity-50 pointer-events-none'}`} id="name" type="text" name="name" />
+                    <input required placeholder="Nome completo" className={`px-4 border rounded py-2 ${products?.length < 1 && 'animate-pulse  opacity-50 pointer-events-none'}`} id="name" type="text" name="name" />
                 </div>
                 <div className="flex flex-col gap-2 w-full">
                     <label htmlFor="title">E-mail</label>
-                    <input required placeholder="fightlogic@gmail.com" className={`px-4 border rounded py-2 ${products?.length < 2 && 'animate-pulse  opacity-50 pointer-events-none'}`} id="email" type="text" name="email" />
+                    <input required placeholder="fightlogic@gmail.com" className={`px-4 border rounded py-2 ${products?.length < 1 && 'animate-pulse  opacity-50 pointer-events-none'}`} id="email" type="text" name="email" />
                 </div>
             </div>
             <div className="flex justify-between gap-4 md:flex-nowrap flex-wrap">
 
                 <div className="flex flex-col gap-2 w-full">
                     <label htmlFor="title">Número de Telefone</label>
-                    <input required placeholder="(61) 9 9263 4979" className={`px-4 border rounded py-2 ${products?.length < 2 && 'animate-pulse  opacity-50 pointer-events-none'}`} id="phone" type="text" name="phone" />
+                    <input required placeholder="(61) 9 9263 4979" className={`px-4 border rounded py-2 ${products?.length < 1 && 'animate-pulse  opacity-50 pointer-events-none'}`} id="phone" type="text" name="phone" />
                 </div>
                 <div className="flex flex-col gap-2 w-full">
                     <label htmlFor="title">Você quer se matricular em qual modalidade?</label>
