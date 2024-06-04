@@ -8,6 +8,8 @@ export async function insertPlan(state: any, form: FormData) {
     const recurring = form.getAll("recurring").map(el => el.toString()) as RecurringEnum[]
 
     if (recurring.length == 0) return { error: 'Selecione pelo menos uma recorrência', data: null }
+    if (Boolean(recurring.find(el => el == RecurringEnum.unique)) && Boolean(recurring.find(el => el != RecurringEnum.unique))) return { error: 'Recorrência única não pode ser selecionada com outros tipos de recorrência', data: null }
+
 
     const recurringData = recurring.map(type => {
         const installments = form.get(`installments-${type}`);
@@ -24,7 +26,7 @@ export async function insertPlan(state: any, form: FormData) {
         };
     }).filter(Boolean);
 
-    recurringData.map(async el => await paymentService.createPrice(name,el.installments, el.price, el.type))
+    recurringData.map(async el => await paymentService.createPrice(name, el.installments, el.price, el.type))
 
     return await planService.insertPlan(text, name, recurringData)
 }
@@ -50,7 +52,7 @@ export async function updatePlan(state: any, form: FormData) {
         };
     }).filter(Boolean);
 
-    recurringData.map(async el => await paymentService.createPrice(name,el.installments, el.price, el.type))
-    
+    recurringData.map(async el => await paymentService.createPrice(name, el.installments, el.price, el.type))
+
     return await planService.updatePlan(id, text, name, recurringData)
 }

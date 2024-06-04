@@ -35,9 +35,8 @@ export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
 
-        console.log('body', body)
-
-        const price = (await stripe.prices.list()).data.find(el => el.unit_amount == body.price)
+        const product = (await stripe.products.list()).data.find(el => el.name == body.plan_name)
+        const price = (await stripe.prices.list()).data.find(el => el.product == product.id)
 
         const session = price.recurring
             ? await stripe.checkout.sessions.create({

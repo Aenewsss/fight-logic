@@ -20,16 +20,18 @@ export async function POST(request: NextRequest) {
         product_data: {
           name: plan_name,
         },
-      }) 
+      })
       : await stripe.prices.create({
         currency: 'brl',
         unit_amount: price * 100,
         product_data: {
           name: plan_name,
         },
-      }) 
+      })
 
-        return NextResponse.json({ data: stripePrice });
+    console.log(stripePrice)
+
+    return NextResponse.json({ data: stripePrice });
   } catch (err) {
     return NextResponse.json({ error: err.message });
   }

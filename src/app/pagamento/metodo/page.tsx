@@ -3,8 +3,11 @@
 import { IPlan, RecurringEnum } from "@/interfaces";
 import paymentService from "@/services/payment.service";
 import planService from "@/services/plan.service";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
+import Pix from "./pix";
+import Loading from "./loading";
 
 export default function Page() {
 
@@ -13,7 +16,8 @@ export default function Page() {
     const router = useRouter()
 
     const [plan, setPlan] = useState<IPlan>();
-    
+    const [showPixModal, setShowPixModal] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const plan_index = searchParams.get('plan_index')
@@ -25,10 +29,15 @@ export default function Page() {
         getData()
     }, []);
 
-    async function createPaymentSession(installments:number, price:number) {
-        const { data } = await paymentService.createPaymentSession(plan.name, installments, price)
-
-        router.push(data.url)
+    async function createPaymentSession(installments: number, price: number) {
+        setLoading(true);
+        try {
+            const { data } = await paymentService.createPaymentSession(plan.name, installments, price);
+            router.push(data.url);
+        } catch (error) {
+            setLoading(false);
+            console.error("Failed to create payment session:", error);
+        }
     }
 
     function renderPlans() {
@@ -40,19 +49,34 @@ export default function Page() {
                     <h2 className="text-2xl font-bold">{plan.name}</h2>
                     <p>{plan.text}</p>
                 </div>
-                <div className="flex flex-wrap gap-4 justify-center">
+                <div className="flex flex-wrap gap-10 justify-center">
                     {plan.recurring.map((rec, index) => (
                         <div key={index} className="bg-white shadow-sm scale-110 hover:scale-125 transition-all cursor-pointer shadow-black p-4 w-56 rounded text-center">
                             <h3><span className="font-medium">Recorrência:&nbsp;</span>{rec.type}</h3>
                             <p>R$ {rec.price},00</p>
                             {rec.type !== RecurringEnum.unique && <p>{rec.installments} parcelas</p>}
-                            <button onClick={_ => createPaymentSession(rec.installments, rec.price)} className="bg-blue-500 px-3 py-2 rounded mt-4 text-white transition-all hover:scale-105">Selecionar método</button>
+                            <button onClick={_ => createPaymentSession(rec.installments, rec.price)} className="bg-blue-500 px-3 py-2 rounded mt-4 text-white transition-all hover:scale-105">Pagar com cartão</button>
                         </div>
                     ))}
+                    {
+                        plan.recurring.find(el => el.type != RecurringEnum.unique)
+                            ?
+                            <div className="bg-white shadow-sm scale-110 hover:scale-125 transition-all cursor-pointer shadow-black p-4 w-56 rounded text-center">
+                                <h3><span className="font-medium">Recorrência:&nbsp;</span>À vista</h3>
+                                <p>R$ {plan.recurring.find(el => el.type == RecurringEnum.yearly).price * plan.recurring.find(el => el.type == RecurringEnum.yearly).installments},00</p>
+                                <button onClick={_ => setShowPixModal(true)} className="bg-blue-500 px-3 py-2 rounded mt-4 text-white transition-all hover:scale-105">Pagar com PIX</button>
+                            </div>
+                            :
+                            <div className="bg-white shadow-sm scale-110 hover:scale-125 transition-all cursor-pointer shadow-black p-4 w-56 rounded text-center">
+                                <h3><span className="font-medium">Recorrência:&nbsp;</span>À vista</h3>
+                                <p>R$ {plan.recurring[0].price},00</p>
+                                <button onClick={_ => setShowPixModal(true)} className="bg-blue-500 px-3 py-2 rounded mt-4 text-white transition-all hover:scale-105">Pagar com PIX</button>
+                            </div>
+
+                    }
                 </div>
             </div>
         );
-
     }
 
     return (
@@ -60,6 +84,9 @@ export default function Page() {
             <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center mb-8 md:leading-[3.5rem]">
                 Escolha seu método de pagamento
             </h1>
+
+            {showPixModal && <Pix setShowPixModal={setShowPixModal} />}
+            {loading && <Loading />}
 
             {renderPlans()}
         </main>
