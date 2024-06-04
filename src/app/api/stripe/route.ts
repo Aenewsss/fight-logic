@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
                 payment_method_options: {
                     card: {
                         installments: {
-                            enabled: true
+                            enabled: true,
                         }
                     }
                 }

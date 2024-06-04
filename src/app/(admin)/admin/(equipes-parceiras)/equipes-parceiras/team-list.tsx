@@ -30,10 +30,10 @@ export default function TeamList() {
     async function removeTeam(id: string, logoUrl: string, teamUrl: string) {
         try {
             await teamService.removeTeam(id, logoUrl, teamUrl)
-            toast('Feedback removido com sucesso', { type: "success" });
+            toast('equipe removida com sucesso', { type: "success" });
             getTeams()
         } catch (error) {
-            toast('Erro ao remover feedback', { type: "error" });
+            toast('Erro ao remover equipe', { type: "error" });
         }
     }
 

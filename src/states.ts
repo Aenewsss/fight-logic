@@ -30,6 +30,11 @@ export const StripeProductsInitialState: IStripeProducts[] = [{
     priceId: ''
 }]
 
-export const FeedbacksInitialState: IFeedback[] = [{
-    image: '/feedbacks/feedback-1.mp4', name: 'Daniel Victor', text: '', url:'/feedbacks/daniel.jpeg'
-}]
+export const FeedbacksInitialState: IFeedback[] = [
+    {
+        image: '/feedbacks/feedback-1.mp4', name: 'Daniel Victor', text: '', url: '/feedbacks/daniel.jpeg',
+    },
+    {
+        image: '/feedbacks/feedback-2.mp4', name: 'Bia', text: '', url: '/feedbacks/bia-fight.png',
+    }
+]
