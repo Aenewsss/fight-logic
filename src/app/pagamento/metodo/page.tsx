@@ -54,7 +54,7 @@ export default function Page() {
                         <div key={index} className="bg-white shadow-sm scale-110 hover:scale-125 transition-all cursor-pointer shadow-black p-4 w-56 rounded text-center">
                             <h3><span className="font-medium">Recorrência:&nbsp;</span>{rec.type}</h3>
                             <p>R$ {rec.price},00</p>
-                            {rec.type !== RecurringEnum.unique && <p>{rec.installments} parcelas</p>}
+                            {/* {rec.type !== RecurringEnum.unique && <p>{rec.installments} parcelas</p>} */}
                             <button onClick={_ => createPaymentSession(rec.installments, rec.price)} className="bg-blue-500 px-3 py-2 rounded mt-4 text-white transition-all hover:scale-105">Pagar com cartão</button>
                         </div>
                     ))}
