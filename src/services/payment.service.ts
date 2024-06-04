@@ -1,14 +1,18 @@
 class PaymentService {
+    async createPaymentSession(plan_name: string, installments: number, price: number) {
+        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe`, { method: "POST", cache: 'no-cache', body: JSON.stringify({ plan_name, installments, price }) })).json()
+    }
+
+    async createPrice(plan_name: string, installments: number, price: number, type: string) {
+        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/create-price`, { method: "POST", cache: 'no-cache', body: JSON.stringify({ plan_name, installments, price, type }) })).json()
+    }
+
     async getProducts() {
         return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe`, { method: "GET", cache: 'no-cache' })).json()
     }
 
     async getProductByPriceId(priceId: string) {
         return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe/${priceId}`, { method: "GET", cache: 'no-cache' })).json()
-    }
-
-    async getPaymentSession(priceId: string, customer_email: string, name: string, phone: string) {
-        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe`, { method: "POST", cache: 'no-cache', body: JSON.stringify({ priceId, customer_email, name, phone }) })).json()
     }
 
     async expireSession(sessionId: string) {

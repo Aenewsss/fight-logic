@@ -14,7 +14,7 @@ export interface IFeedback {
     image: string
     text: string
     name: string
-    url?:string
+    url?: string
 }
 
 export interface ITeam {
@@ -46,6 +46,7 @@ export interface IStripeProducts {
     monthly: number
     totalYear: number
     priceId: string
+    recurring?: string
 }
 
 export interface IStripeProductEdit {
@@ -55,4 +56,24 @@ export interface IStripeProductEdit {
     recurring: string
     monthly: string
     priceId: string
+}
+
+export interface IPlan {
+    id?: string
+    text: string
+    name: string
+    recurring: IRecurringData[]
+}
+
+export enum RecurringEnum {
+    yearly = 'anual',
+    monthly = 'mensal',
+    quarterly = 'trimestral',
+    unique = 'unica',
+}
+
+export interface IRecurringData {
+    type: RecurringEnum;
+    installments: number;
+    price: number;
 }

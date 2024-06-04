@@ -11,6 +11,7 @@ export default function Cards() {
             <Card link="sobre-nos" title="Sobre a Fight Logic" description="Conheça mais sobre a história, missão e equipe da Fight Logic, entendendo nossa filosofia e valores" image="/cards/card-sobre.png"/>
             <Card link="aula-particular" title="Aulas particulares" description="Entenda o motivo para fazer aulas particulares com nosso professores" image="/private/rakel.jpeg"/>
             <Card link="competicoes" title="Competições" description="Na Constrictor Team Asa norte as competições também tem seu lugar de destaque. " image="/marceu-vencedor.jpg"/>
+            <Card link="planos" title="Planos Fight Logic" description="Nessa seção você poderá gerenciar os planos da academia Fight Logic" image="/cards/card-pagamento.jpg"/>
             {/* <Card link="pagamento" title="Área de Pagamentos" description="Informe os valores dos planos de assinatura da Fight Logic para que os alunos saibam as opções disponíveis" image="/cards/card-pagamento.jpg"/> */}
         </section>
     )

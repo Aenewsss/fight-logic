@@ -1,14 +1,6 @@
 'use server'
 import paymentService from "@/services/payment.service";
 
-export async function paymentBasicData(state: any, form: FormData) {
-    const modality = form.get('modality').toString()
-    const email = form.get('email').toString()
-    const name = form.get('name').toString()
-    const phone = form.get('phone').toString()
-    return await paymentService.getPaymentSession(modality, email, name, phone)
-}
-
 export async function updateProduct(state: any, form: FormData) {
     const id = form.get('id').toString()
 

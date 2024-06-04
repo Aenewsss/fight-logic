@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import * as nodemailer from "nodemailer"
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
@@ -36,62 +35,31 @@ export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
 
-        const price = await stripe.prices.retrieve(body.priceId)
+        console.log('body', body)
+
+        const price = (await stripe.prices.list()).data.find(el => el.unit_amount == body.price)
 
         const session = price.recurring
             ? await stripe.checkout.sessions.create({
                 success_url: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true&session={CHECKOUT_SESSION_ID}`,
                 line_items: [
                     {
-                        price: body.priceId,
+                        price: price.id,
                         quantity: 1,
                     },
                 ],
                 mode: 'subscription',
-                customer_email: body.customer_email,
             })
             : await stripe.checkout.sessions.create({
                 success_url: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true&session={CHECKOUT_SESSION_ID}`,
                 line_items: [
                     {
-                        price: body.priceId,
+                        price: price.id,
                         quantity: 1,
                     },
                 ],
                 mode: 'payment',
-                customer_email: body.customer_email,
-                payment_method_options: {
-                    card: {
-                        installments: {
-                            enabled: true,
-                        }
-                    }
-                }
             })
-
-
-        const transporter = nodemailer.createTransport({
-            service: "Gmail",
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
-
-            auth: {
-                user: process.env.NEXT_PUBLIC_NODEMAILER_EMAIL,
-                pass: process.env.NEXT_PUBLIC_NODEMAILER_PASS,
-            }
-        });
-
-        await transporter.sendMail({
-            from: process.env.NEXT_PUBLIC_NODEMAILER_EMAIL,
-            to: process.env.NEXT_PUBLIC_NODEMAILER_EMAIL,
-            subject: `Pré-matrícula realizada pelo site`,
-            html: `
-                <p>Cliente: ${body.name} </p>
-                <p>E-mail: ${body.customer_email} </p>
-                <p>Telefone: ${body.phone} </p>
-            `,
-        })
 
         return NextResponse.json({ data: session });
     } catch (err) {
