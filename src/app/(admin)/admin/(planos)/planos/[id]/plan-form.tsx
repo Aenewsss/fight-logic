@@ -25,7 +25,7 @@ export default function PlanForm({ id }: IProps) {
 
         async function getData() {
             const { data } = await planService.getPlanById(id)
-            setPlan({ id, name, text, recurring: data.recurring })
+            setPlan({ id, name, text, price: data.price,subscription: data.subscriptions })
         }
         getData()
 
@@ -54,86 +54,110 @@ export default function PlanForm({ id }: IProps) {
                 <textarea value={plan.text} onChange={e => setPlan({ ...plan, text: e.target.value })} className="px-4 border rounded py-2" id="text" name="text"></textarea>
             </div>
             <div className="flex flex-col gap-2 w-full">
-                <label htmlFor="description">Recorrência</label>
-                <div className="px-4 border rounded py-2">
-                    <div className="flex flex-col gap-4">
-                        <div className="flex gap-4">
-                            <label className="flex gap-2">
-                                <input defaultChecked={plan.recurring.find(el => el.type.includes(RecurringEnum.yearly)) ? true : false} type="checkbox" name="recurring" value={RecurringEnum.yearly} />
-                                {RecurringEnum.yearly}
-                            </label>
+                    <label htmlFor="description">Valor à vista</label>
+                    <input
+                        type="number"
+                        name='price'
+                        className="px-4 py-2 border rounded placeholder:text-gray-500"
+                        placeholder="3000"
+                    />
+                </div>
+                <div className="flex flex-col gap-2 w-full mt-4">
+                    <h3 className="font-semibold">Assinatura 1</h3>
+                    <div className="flex gap-8">
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="description">Recorrência</label>
                             <input
-                                value={plan.recurring.find(el => el.type == RecurringEnum.yearly)?.installments}
                                 type="number"
-                                name='installments-anual'
-                                defaultValue='0'
-                                className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                placeholder="Quantidade de parcelas"
-                            />
-                            <input
-                                value={plan.recurring.find(el => el.type == RecurringEnum.yearly)?.price}
-                                type="number"
-                                name='price-anual'
-                                className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                placeholder="Valor do plano"
+                                name='recurring-1'
+                                className="px-4 border rounded py-2 placeholder:text-gray-500"
+                                placeholder="Anual, mensal, trimestral"
                             />
                         </div>
-                        <div className="flex gap-4">
-                            <label className="flex gap-2">
-                                <input defaultChecked={plan.recurring.find(el => el.type.includes(RecurringEnum.monthly)) ? true : false} type="checkbox" name="recurring" value={RecurringEnum.monthly} />
-                                {RecurringEnum.monthly}
-                            </label>
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="description">Valor mensal</label>
                             <input
-                                value={plan.recurring.find(el => el.type == RecurringEnum.monthly)?.installments}
                                 type="number"
-                                name='installments-mensal'
-                                className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                placeholder="Quantidade de parcelas"
-                            />
-                            <input
-                                value={plan.recurring.find(el => el.type == RecurringEnum.monthly)?.price}
-                                type="number"
-                                name='price-mensal'
-                                className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                placeholder="Valor do plano"
+                                name='price-1'
+                                className="px-4 border rounded py-2 placeholder:text-gray-500"
+                                placeholder="200"
                             />
                         </div>
-                        <div className="flex gap-4">
-                            <label className="flex gap-2">
-                                <input defaultChecked={plan.recurring.find(el => el.type.includes(RecurringEnum.quarterly)) ? true : false} type="checkbox" name="recurring" value={RecurringEnum.quarterly} />
-                                {RecurringEnum.quarterly}
-                            </label>
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="description">Link de pagamento</label>
                             <input
-                                value={plan.recurring.find(el => el.type == RecurringEnum.quarterly)?.installments}
                                 type="number"
-                                name='installments-trimestral'
-                                className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                placeholder="Quantidade de parcelas"
-                            />
-                            <input
-                                value={plan.recurring.find(el => el.type == RecurringEnum.quarterly)?.price}
-                                type="number"
-                                name='price-trimestral'
-                                className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                placeholder="Valor do plano"
-                            />
-                        </div>
-                        <div className="flex gap-4">
-                            <label className="flex gap-2">
-                                <input defaultChecked={plan.recurring.find(el => el.type.includes(RecurringEnum.unique)) ? true : false} type="checkbox" name="recurring" value={RecurringEnum.unique} />
-                                {RecurringEnum.unique}
-                            </label>
-                            <input
-                                value={plan.recurring.find(el => el.type == RecurringEnum.unique)?.price}
-                                type="number"
-                                name='price-unica'
-                                className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                placeholder="Valor do plano"
+                                name='link-1'
+                                className="px-4 border rounded py-2 placeholder:text-gray-500"
+                                placeholder="Insira aqui o link do mercado pago"
                             />
                         </div>
                     </div>
                 </div>
-            </div>
+                <div className="flex flex-col gap-2 w-full">
+                    <h3 className="font-semibold">Assinatura 2</h3>
+                    <div className="flex gap-8">
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="description">Recorrência</label>
+                            <input
+                                type="number"
+                                name='recurring-2'
+                                className="px-4 border rounded py-2 placeholder:text-gray-500"
+                                placeholder="Anual, mensal, trimestral"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="description">Valor mensal</label>
+                            <input
+                                type="number"
+                                name='price-2'
+                                className="px-4 border rounded py-2 placeholder:text-gray-500"
+                                placeholder="200"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="description">Link de pagamento</label>
+                            <input
+                                type="number"
+                                name='link-2'
+                                className="px-4 border rounded py-2 placeholder:text-gray-500"
+                                placeholder="Insira aqui o link do mercado pago"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="flex flex-col gap-2 w-full">
+                    <h3 className="font-semibold">Assinatura 3</h3>
+                    <div className="flex gap-8">
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="description">Recorrência</label>
+                            <input
+                                type="number"
+                                name='recurring-3'
+                                className="px-4 border rounded py-2 placeholder:text-gray-500"
+                                placeholder="Anual, mensal, trimestral"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="description">Valor mensal</label>
+                            <input
+                                type="number"
+                                name='price-3'
+                                className="px-4 border rounded py-2 placeholder:text-gray-500"
+                                placeholder="200"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="description">Link de pagamento</label>
+                            <input
+                                type="number"
+                                name='link-3'
+                                className="px-4 border rounded py-2 placeholder:text-gray-500"
+                                placeholder="Insira aqui o link do mercado pago"
+                            />
+                        </div>
+                    </div>
+                </div>
             <input name="id" value={id} hidden type="text" />
 
             <div className="border-t pt-2 flex justify-end w-full">

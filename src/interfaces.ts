@@ -62,7 +62,8 @@ export interface IPlan {
     id?: string
     text: string
     name: string
-    recurring: IRecurringData[]
+    price: string
+    subscriptions: any[]
 }
 
 export enum RecurringEnum {

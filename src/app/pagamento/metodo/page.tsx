@@ -8,6 +8,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Pix from "./pix";
 import Loading from "./loading";
+import Link from "next/link";
 
 export default function Page() {
 
@@ -24,15 +25,16 @@ export default function Page() {
 
         async function getData() {
             const { data } = await planService.getPlans()
+            console.log(data)
             setPlan(data[plan_index])
         }
         getData()
     }, []);
 
-    async function createPaymentSession(installments: number, price: number) {
+    async function createPaymentSession(price: string) {
         setLoading(true);
         try {
-            const { data } = await paymentService.createPaymentSession(plan.name, installments, price);
+            const { data } = await paymentService.createPaymentSession(plan.name, price);
             router.push(data.url);
         } catch (error) {
             setLoading(false);
@@ -41,51 +43,38 @@ export default function Page() {
     }
 
     function renderPlans() {
-        if (!plan || !plan.recurring) return <p>Carregando...</p>
+        if (!plan || !plan.subscriptions) return <p>Carregando...</p>
+
 
         return (
-            <div className="my-8 flex flex-col gap-4">
-                <div className="mb-4 text-center">
-                    <h2 className="text-2xl font-bold">{plan.name}</h2>
-                    <p>{plan.text}</p>
-                </div>
-                <div className="flex flex-wrap gap-10 justify-center">
-                    {plan.recurring.map((rec, index) => (
-                        <div key={index} className="bg-white shadow-sm scale-110 hover:scale-125 transition-all cursor-pointer shadow-black p-4 w-56 rounded text-center">
-                            <h3><span className="font-medium">Recorrência:&nbsp;</span>{rec.type}</h3>
-                            <p>R$ {rec.price},00</p>
-                            {/* {rec.type !== RecurringEnum.unique && <p>{rec.installments} parcelas</p>} */}
-                            <button onClick={_ => createPaymentSession(rec.installments, rec.price)} className="bg-blue-500 px-3 py-2 rounded mt-4 text-white transition-all hover:scale-105">Pagar com cartão</button>
+            <div className="my-28 flex flex-col gap-12">
+                <h3 className="text-2xl text-center mb-0">Ou Escolha seu plano por assinatura sem comprometer o limite do seu cartão</h3>
+                <div className="flex flex-wrap gap-16 justify-center">
+                    {plan.subscriptions.map((subs, index) => (
+                        <div key={index} className="flex flex-col justify-between gap-4 bg-white border shadow-sm scale-110 hover:scale-125 transition-all cursor-pointer shadow-black p-4 w-64 max-h-[300px] rounded text-center">
+                            <h3 className="capitalize font-semibold text-xl">{subs.recurring}</h3>
+                            <p>R$ {subs.price},00</p>
+                            <p className="text-sm">Nossas assinaturas nao comprometem o limite do seu cartão</p>
+                            <Link href={subs.link} className="bg-blue-500 px-3 py-2 rounded mt-4 text-white transition-all hover:scale-105">Selecionar Plano</Link>
                         </div>
                     ))}
-                    {
-                        plan.recurring.find(el => el.type != RecurringEnum.unique)
-                            ?
-                            <div className="bg-white shadow-sm scale-110 hover:scale-125 transition-all cursor-pointer shadow-black p-4 w-56 rounded text-center">
-                                <h3><span className="font-medium">Recorrência:&nbsp;</span>À vista</h3>
-                                <p>R$ {plan.recurring.find(el => el.type == RecurringEnum.yearly).price * plan.recurring.find(el => el.type == RecurringEnum.yearly).installments},00</p>
-                                <button onClick={_ => setShowPixModal(true)} className="bg-blue-500 px-3 py-2 rounded mt-4 text-white transition-all hover:scale-105">Pagar com PIX</button>
-                            </div>
-                            :
-                            <div className="bg-white shadow-sm scale-110 hover:scale-125 transition-all cursor-pointer shadow-black p-4 w-56 rounded text-center">
-                                <h3><span className="font-medium">Recorrência:&nbsp;</span>À vista</h3>
-                                <p>R$ {plan.recurring[0].price},00</p>
-                                <button onClick={_ => setShowPixModal(true)} className="bg-blue-500 px-3 py-2 rounded mt-4 text-white transition-all hover:scale-105">Pagar com PIX</button>
-                            </div>
-
-                    }
                 </div>
             </div>
         );
     }
 
     return (
-        <main className="container mx-auto pt-10 pb-40">
-            <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center mb-8 md:leading-[3.5rem]">
-                Escolha seu método de pagamento
-            </h1>
+        <main className="container mx-auto pt-10 pb-40 flex flex-col items-center">
+            <h1 className="md:text-[3.5rem] text-4xl font-questrial mb-2 md:leading-[3.5rem]"><span className="font-bold capitalize">Plano:&nbsp;</span>{plan?.name}</h1>
+            <p className="text-xl">*Escolha seu método de pagamento</p>
 
-            {showPixModal && <Pix setShowPixModal={setShowPixModal} />}
+            <div className="text-white flex flex-col justify-between gap-4 bg-black border shadow-xl scale-110 hover:scale-125 transition-all cursor-pointer shadow-green-500 p-16 max-h-[400px] rounded text-center mt-20">
+                <h3 className="font-semibold text-4xl">Pagar com PIX, cartão ou boleto</h3>
+                <p>R$ {plan?.price},00</p>
+                <p className="text-lg">Essa é nossa forma de pagamento que mais vale a pena</p>
+                <button onClick={_ => createPaymentSession(plan.price)} className="bg-green-500 px-3 py-2 rounded mt-4 text-black uppercase tracking-widest font-semibold  transition-all hover:scale-105">Selecionar</button>
+            </div>
+
             {loading && <Loading />}
 
             {renderPlans()}

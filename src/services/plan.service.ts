@@ -6,10 +6,9 @@ class PlanService {
     async getPlans(): Promise<IResponse> {
         const dbRef = ref(database, 'plans/')
         const data = await get(dbRef)
-
         if (!data.exists()) return { data: null, error: 'Nenhum plano encontrado' }
 
-        return { error: null, data: data.val().filter(Boolean) }
+        return { error: null, data: Object.values(data.val()).filter(Boolean) }
     }
 
     async getPlanById(id:string): Promise<IResponse> {
@@ -23,7 +22,7 @@ class PlanService {
 
 
 
-    async insertPlan(text: string, name: string, recurring:IRecurringData[]): Promise<IResponse> {
+    async insertPlan(text: string, name: string, price:string,subscriptionsToAdd:any): Promise<IResponse> {
         try {
             const dbRef = ref(database, `plans`)
 
@@ -34,7 +33,8 @@ class PlanService {
             await set(newDbRef, {
                 text,
                 name,
-                recurring
+                price,
+                subscriptions: subscriptionsToAdd
             })
 
             return { error: null, data: true }

@@ -35,76 +35,108 @@ export default function PlanAddForm({ setShowAddForm }: IProps) {
                     <textarea required placeholder="Descrição do plano" className="min-w-[300px] px-4 border rounded py-2" id="description" name="text"></textarea>
                 </div>
                 <div className="flex flex-col gap-2 w-full">
-                    <label htmlFor="description">Recorrência</label>
-                    <div className="px-4 border rounded py-2">
-                        <div className="flex flex-col gap-4">
-                            <div className="flex gap-4">
-                                <label className="flex gap-2">
-                                    <input defaultChecked type="checkbox" name="recurring" value={RecurringEnum.yearly} />
-                                    {RecurringEnum.yearly}
-                                </label>
-                                <input
-                                    type="number"
-                                    name='installments-anual'
-                                    defaultValue='0'
-                                    className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                    placeholder="Quantidade de parcelas"
-                                />
-                                <input
-                                    type="number"
-                                    name='price-anual'
-                                    className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                    placeholder="Valor do plano"
-                                />
-                            </div>
-                            <div className="flex gap-4">
-                                <label className="flex gap-2">
-                                    <input type="checkbox" name="recurring" value={RecurringEnum.monthly} />
-                                    {RecurringEnum.monthly}
-                                </label>
-                                <input
-                                    type="number"
-                                    name='installments-mensal'
-                                    className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                    placeholder="Quantidade de parcelas"
-                                />
-                                <input
-                                    type="number"
-                                    name='price-mensal'
-                                    className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                    placeholder="Valor do plano"
-                                />
-                            </div>
-                            <div className="flex gap-4">
-                                <label className="flex gap-2">
-                                    <input type="checkbox" name="recurring" value={RecurringEnum.quarterly} />
-                                    {RecurringEnum.quarterly}
-                                </label>
-                                <input
-                                    type="number"
-                                    name='installments-trimestral'
-                                    className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                    placeholder="Quantidade de parcelas"
-                                />
-                                <input
-                                    type="number"
-                                    name='price-trimestral'
-                                    className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                    placeholder="Valor do plano"
-                                />
-                            </div>
-                            <div className="flex gap-4">
-                                <label className="flex gap-2">
-                                    <input type="checkbox" name="recurring" value={RecurringEnum.unique} />
-                                    {RecurringEnum.unique}
-                                </label>
-                                <input
-                                    type="number"
-                                    name='price-unica'
-                                    className="px-2 border rounded py-1 placeholder:text-gray-500"
-                                    placeholder="Valor do plano"
-                                />
-                            </div>
+                    <label htmlFor="description">Valor à vista</label>
+                    <input
+                        type="number"
+                        required
+                        name='price'
+                        className="px-4 py-2 border rounded "
+                        placeholder="3000"
+                    />
+                </div>
+                <div className="flex flex-col gap-2 w-full mt-4">
+                    <h3 className="font-semibold">Assinatura 1</h3>
+                    <div className="flex gap-8">
+                        <div className="flex flex-col w-full">
+                            <label>Recorrência</label>
+                            <input
+                                type="text"
+                                name='recurring-1'
+                                className="px-4 border rounded py-2 "
+                                placeholder="Anual, mensal, trimestral"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label>Valor mensal</label>
+                            <input
+                                type="number"
+                                name='price-1'
+                                className="px-4 border rounded py-2 "
+                                placeholder="200"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label>Link de pagamento</label>
+                            <input
+                                type="text"
+                                name='link-1'
+                                className="px-4 border rounded py-2 "
+                                placeholder="Insira aqui o link do mercado pago"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="flex flex-col gap-2 w-full">
+                    <h3 className="font-semibold">Assinatura 2</h3>
+                    <div className="flex gap-8">
+                        <div className="flex flex-col w-full">
+                            <label>Recorrência</label>
+                            <input
+                                type="text"
+                                name='recurring-2'
+                                className="px-4 border rounded py-2 "
+                                placeholder="Anual, mensal, trimestral"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label>Valor mensal</label>
+                            <input
+                                type="number"
+                                name='price-2'
+                                className="px-4 border rounded py-2 "
+                                placeholder="200"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label>Link de pagamento</label>
+                            <input
+                                type="text"
+                                name='link-2'
+                                className="px-4 border rounded py-2 "
+                                placeholder="Insira aqui o link do mercado pago"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="flex flex-col gap-2 w-full">
+                    <h3 className="font-semibold">Assinatura 3</h3>
+                    <div className="flex gap-8">
+                        <div className="flex flex-col w-full">
+                            <label>Recorrência</label>
+                            <input
+                                type="text"
+                                name='recurring-3'
+                                className="px-4 border rounded py-2 "
+                                placeholder="Anual, mensal, trimestral"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label>Valor mensal</label>
+                            <input
+                                type="number"
+                                name='price-3'
+                                className="px-4 border rounded py-2 "
+                                placeholder="200"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label>Link de pagamento</label>
+                            <input
+                                type="text"
+                                name='link-3'
+                                className="px-4 border rounded py-2 "
+                                placeholder="Insira aqui o link do mercado pago"
+                            />
                         </div>
                     </div>
                 </div>

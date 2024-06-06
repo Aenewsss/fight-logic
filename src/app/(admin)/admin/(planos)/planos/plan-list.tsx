@@ -23,6 +23,7 @@ export default function PlanList() {
     async function getPlans() {
         setLoading(true)
         const { data } = await planService.getPlans()
+        
         setPlans(data)
         setLoading(false)
     }
@@ -55,7 +56,6 @@ export default function PlanList() {
                             <tr>
                                 <th className="py-2">Nome</th>
                                 <th>Descrição</th>
-                                <th>Recorrência</th>
                                 <th className="hidden md:flex">Editar</th>
                                 <th className="px-4">Excluir</th>
                             </tr>
@@ -65,7 +65,6 @@ export default function PlanList() {
                                 <tr onClick={_ => goToPage(`/admin/planos/${index}?name=${el.name}&text=${el.text}`)} key={index} className="border-b border-gray-30 md:cursor-default cursor-pointer">
                                     <td className="font-medium py-2">{el.name}</td>
                                     <td className="pl-2 py-2">{el.text}</td>
-                                    {el.recurring && <td className="pl-2 py-2 flex flex-col">{Object.values(el.recurring).map((el, index) => <span key={index}>-{el.type}</span>)}</td>}
                                     <td className="md:pl-4 hidden md:table-cell items-center">
                                         <Link href={`/admin/planos/${index}?name=${el.name}&text=${el.text}`} className="group mt-2">
                                             <Image src="/icons/pencil.svg" width={20} height={20} alt="Lápis de edição" className="group-hover:scale-110" />

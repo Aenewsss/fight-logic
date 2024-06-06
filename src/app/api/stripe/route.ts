@@ -1,75 +1,62 @@
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
+import { MercadoPagoConfig, Preference } from 'mercadopago';
 
-const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+const client = new MercadoPagoConfig({ accessToken: process.env.NEXT_PUBLIC_MERCADO_PAGO_ACCESS_TOKEN });
 
-export async function GET(request: NextRequest) {
-    try {
-        const { data: productsData } = await stripe.products.list();
+// export async function GET(request: NextRequest) {
+//     try {
+//         const { data: productsData } = await stripe.products.list();
 
-        const { data: pricesData } = await stripe.prices.list();
+//         const { data: pricesData } = await stripe.prices.list();
 
-        const data = productsData
-            .filter(el => el.active)
-            .map(el => ({ name: el.name, price: el.default_price }))
-            .map(product => ({ ...product, price: pricesData.find(priceData => priceData.id == product.price).unit_amount_decimal, recurring: pricesData.find(priceData => priceData.id == product.price)?.recurring?.interval, priceId: pricesData.find(priceData => priceData.id == product.price).id }))
-            .map(product => (
-                {
-                    ...product,
-                    price: product.price.slice(0, product.price.length - 2),
-                    monthly: product.recurring == 'year'
-                        ? Number(product.price.slice(0, product.price.length - 2)) / 12
-                        : Number(product.price.slice(0, product.price.length - 2)),
-                    totalYear: product.recurring == 'year'
-                        ? Number(product.price.slice(0, product.price.length - 2))
-                        : Number(product.price.slice(0, product.price.length - 2)) * 12
-                }))
+//         const data = productsData
+//             .filter(el => el.active)
+//             .map(el => ({ name: el.name, price: el.default_price }))
+//             .map(product => ({ ...product, price: pricesData.find(priceData => priceData.id == product.price).unit_amount_decimal, recurring: pricesData.find(priceData => priceData.id == product.price)?.recurring?.interval, priceId: pricesData.find(priceData => priceData.id == product.price).id }))
+//             .map(product => (
+//                 {
+//                     ...product,
+//                     price: product.price.slice(0, product.price.length - 2),
+//                     monthly: product.recurring == 'year'
+//                         ? Number(product.price.slice(0, product.price.length - 2)) / 12
+//                         : Number(product.price.slice(0, product.price.length - 2)),
+//                     totalYear: product.recurring == 'year'
+//                         ? Number(product.price.slice(0, product.price.length - 2))
+//                         : Number(product.price.slice(0, product.price.length - 2)) * 12
+//                 }))
 
-        return NextResponse.json({ data });
-    } catch (err) {
-        return NextResponse.json({ error: err.message });
-    }
-}
+//         return NextResponse.json({ data });
+//     } catch (err) {
+//         return NextResponse.json({ error: err.message });
+//     }
+// }
 
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
 
-        const priceList = (await stripe.prices.list()).data
+        console.log(body)
+        const preference = new Preference(client);
 
-        const products = (await stripe.products.list()).data.filter(el => el.name == body.plan_name).map(el => el.id)
-
-        console.log('\n products', products)
-        
-        const price = products.map(product => {
-            const price = priceList.find(el => el.product == product && (el.unit_amount / 100) == body.price)
-            return price
-        }).filter(Boolean)[0]
-
-
-        const session = price.recurring
-            ? await stripe.checkout.sessions.create({
-                success_url: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true&session={CHECKOUT_SESSION_ID}`,
-                line_items: [
+        const pref = await preference.create({
+            body: {
+                items: [
                     {
-                        price: price.id,
+                        id: '1',
+                        title: body.plan_name,
                         quantity: 1,
+                        unit_price: Number(body.price)
                     },
                 ],
-                mode: 'subscription',
-            })
-            : await stripe.checkout.sessions.create({
-                success_url: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true&session={CHECKOUT_SESSION_ID}`,
-                line_items: [
-                    {
-                        price: price.id,
-                        quantity: 1,
-                    },
-                ],
-                mode: 'payment',
-            })
+                back_urls: {
+                    success: `${process.env.NEXT_PUBLIC_APP_URL}/pagamento?success=true`
+                },
+            }
+        })
 
-        return NextResponse.json({ data: session });
+        console.log(pref)
+
+        return NextResponse.json({ data: { url: pref.sandbox_init_point } });
     } catch (err) {
         return NextResponse.json({ error: err.message });
     }

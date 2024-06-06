@@ -1,6 +1,6 @@
 class PaymentService {
-    async createPaymentSession(plan_name: string, installments: number, price: number) {
-        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe`, { method: "POST", cache: 'no-cache', body: JSON.stringify({ plan_name, installments, price }) })).json()
+    async createPaymentSession(plan_name: string, price: string) {
+        return (await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/stripe`, { method: "POST", cache: 'no-cache', body: JSON.stringify({ plan_name,  price }) })).json()
     }
 
     async createPrice(plan_name: string, installments: number, price: number, type: string) {
