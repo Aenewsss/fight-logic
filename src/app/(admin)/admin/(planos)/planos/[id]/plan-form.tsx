@@ -25,7 +25,7 @@ export default function PlanForm({ id }: IProps) {
 
         async function getData() {
             const { data } = await planService.getPlanById(id)
-            setPlan({ id, name, text, price: data.price,subscription: data.subscriptions })
+            setPlan({ id, name, text, price: data.price,subscriptions: data.subscriptions })
         }
         getData()
 
