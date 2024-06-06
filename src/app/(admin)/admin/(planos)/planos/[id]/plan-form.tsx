@@ -41,7 +41,7 @@ export default function PlanForm({ id }: IProps) {
         }
     }, [state]);
 
-    if (!plan || !plan.recurring.length) return <p>Carregando</p>
+    if (!plan || !plan.subscriptions.length) return <p>Carregando</p>
 
     return (
         <form action={action} className="w-full mt-8 bg-white shadow-md shadow-black p-8 flex flex-col gap-4 items-start">
