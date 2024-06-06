@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
 
         console.log(pref)
 
-        return NextResponse.json({ data: { url: pref.sandbox_init_point } });
+        return NextResponse.json({ data: { url: pref.init_point } });
     } catch (err) {
         return NextResponse.json({ error: err.message });
     }
