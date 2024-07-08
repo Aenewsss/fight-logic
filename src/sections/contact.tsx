@@ -16,11 +16,11 @@ export default function Contact() {
                         </Reveal>
                     </div>
                     <div className="w-full md:flex hidden">
-                        <iframe width="100%" height="440" frameBorder="0" scrolling="no" marginHeight={0} marginWidth={0} src="https://maps.google.com/maps?width=100%25&amp;height=440&amp;hl=en&amp;q=Constrictor%20Parque%20da%20Cidade+(Fight%20Logic)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                        <iframe width="100%" height="440" frameBorder="0" scrolling="no" marginHeight={0} marginWidth={0} src=<div style="width: 100%"><iframe width="100%" height="440" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=440&amp;hl=en&amp;q=15%C2%B044'36.8%22S%2047%C2%B053'42.3%22W+(Constrictor%20Team%20Asa%20Norte)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                         </iframe>
                     </div>
                     <div className="w-full md:hidden rounded-md overflow-hidden">
-                        <iframe width="100%" height="220" frameBorder="0" scrolling="no" marginHeight={0} marginWidth={0} src="https://maps.google.com/maps?width=100%25&amp;height=220&amp;hl=en&amp;q=Constrictor%20Parque%20da%20Cidade+(Fight%20Logic)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                        <iframe width="100%" height="220" frameBorder="0" scrolling="no" marginHeight={0} marginWidth={0} src=<div style="width: 100%"><iframe width="100%" height="440" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=440&amp;hl=en&amp;q=15%C2%B044'36.8%22S%2047%C2%B053'42.3%22W+(Constrictor%20Team%20Asa%20Norte)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                         </iframe>
                     </div>
                 </div>
