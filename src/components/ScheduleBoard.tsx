@@ -155,7 +155,7 @@ export default function ScheduleBoard() {
                     )}
                 </ul> */}
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.monday).map((el: any, index) =>
+                    {schedule.monday && Object.entries(schedule.monday).map((el: any, index) =>
                         <li className="text-center" key={index}>
                             <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
@@ -165,7 +165,7 @@ export default function ScheduleBoard() {
                     )}
                 </ul>
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.tuesday).map((el: any, index) =>
+                    {schedule.tuesday && Object.entries(schedule.tuesday).map((el: any, index) =>
                         <li className="text-center" key={index}>
                             <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
@@ -175,7 +175,7 @@ export default function ScheduleBoard() {
                     )}
                 </ul>
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.wednesday).map((el: any, index) =>
+                    {schedule.wednesday && Object.entries(schedule.wednesday).map((el: any, index) =>
                         <li className="text-center" key={index}>
                             <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
@@ -185,7 +185,7 @@ export default function ScheduleBoard() {
                     )}
                 </ul>
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.thursday).map((el: any, index) =>
+                    {schedule.thursday && Object.entries(schedule.thursday).map((el: any, index) =>
                         <li className="text-center" key={index}>
                             <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
@@ -195,7 +195,7 @@ export default function ScheduleBoard() {
                     )}
                 </ul>
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
-                    {Object.entries(schedule.friday).map((el: any, index) =>
+                    {schedule.friday && Object.entries(schedule.friday).map((el: any, index) =>
                         <li className="text-center" key={index}>
                             <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
@@ -205,7 +205,7 @@ export default function ScheduleBoard() {
                     )}
                 </ul>
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2">
-                    {Object.entries(schedule.saturday).map((el: any, index) =>
+                    {schedule.saturday && Object.entries(schedule.saturday).map((el: any, index) =>
                         <li className="text-center" key={index}>
                             <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
