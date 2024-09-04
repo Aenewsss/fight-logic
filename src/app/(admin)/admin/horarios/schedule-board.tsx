@@ -58,12 +58,12 @@ export default function ScheduleBoard() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{Object.keys(schedules.monday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('monday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
-                        <td>{Object.keys(schedules.tuesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('tuesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
-                        <td>{Object.keys(schedules.wednesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('wednesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
-                        <td>{Object.keys(schedules.thursday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('thursday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
-                        <td>{Object.keys(schedules.friday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('friday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
-                        <td>{Object.keys(schedules.saturday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('saturday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
+                        <td>{schedules.monday && Object.keys(schedules.monday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('monday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
+                        <td>{schedules.tuesday && Object.keys(schedules.tuesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('tuesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
+                        <td>{schedules.wednesday && Object.keys(schedules.wednesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('wednesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
+                        <td>{schedules.thursday && Object.keys(schedules.thursday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('thursday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
+                        <td>{schedules.friday && Object.keys(schedules.friday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('friday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
+                        <td>{schedules.saturday && Object.keys(schedules.saturday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('saturday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td>
                         {/* <td>{Object.keys(schedules.sunday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('sunday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</td> */}
                     </tr>
                 </tbody>
@@ -73,37 +73,37 @@ export default function ScheduleBoard() {
                 <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
                     <h2 className="text-center font-semibold border-b pb-2">Segunda</h2>
                     <ul>
-                        <li>{Object.keys(schedules.monday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('monday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                        <li>{schedules.monday && Object.keys(schedules.monday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('monday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
                     <h2 className="text-center font-semibold border-b pb-2">Terça</h2>
                     <ul>
-                        <li>{Object.keys(schedules.tuesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('tuesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                        <li>{schedules.tuesday && Object.keys(schedules.tuesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('tuesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
                     <h2 className="text-center font-semibold border-b pb-2">Quarta</h2>
                     <ul>
-                        <li>{Object.keys(schedules.wednesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('wednesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                        <li>{schedules.wednesday && Object.keys(schedules.wednesday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('wednesday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
                     <h2 className="text-center font-semibold border-b pb-2">Quinta</h2>
                     <ul>
-                        <li>{Object.keys(schedules.thursday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('thursday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                        <li>{schedules.thursday && Object.keys(schedules.thursday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('thursday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
                     <h2 className="text-center font-semibold border-b pb-2">Sexta</h2>
                     <ul>
-                        <li>{Object.keys(schedules.friday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('friday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                        <li>{schedules.friday && Object.keys(schedules.friday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('friday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
                     <h2 className="text-center font-semibold border-b pb-2">Sábado</h2>
                     <ul>
-                        <li>{Object.keys(schedules.saturday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('saturday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
+                        <li>{schedules.saturday && Object.keys(schedules.saturday).map((el: string) => <p className="text-center">{el} <span onClick={_ => removeHour('saturday', el)} className="text-red-500 cursor-pointer text-lg">x</span> </p>)}</li>
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 bg-white shadow-md shadow-slate-300 py-2 rounded-md">
