@@ -26,12 +26,16 @@ export default function ModalBenefits() {
                 <Image unoptimized className="h-[400px] w-full object-cover rounded-md" src="/membros-fundadores.png" width={300} height={108} alt="Foto de fundo do time" />
                 <div className="absolute bg-black opacity-50 w-full h-full"></div>
                 <p className="text-white absolute text-xl text-center font-inter">
+                    Temos a honra de aprensentar a nova unidade Fight Logic.<br/>
+                    Confira as <span className="font-extrabold">promoções!&nbsp;</span>
+                </p>
+                {/* <p className="text-white absolute text-xl text-center font-inter">
                     Treine de maneira mais inteligente e economize!<br/>
                     Os membros fundadores receberão um <span className="font-extrabold">desconto vitalício&nbsp;</span>
                     em nossa academia.
-                </p>
-                <Link onClick={removeModal} href='/#fundador' className="bg-white px-2 py-3 font-inter rounded-xl absolute bottom-10 text-center z-10 hover:scale-105 transition-all shadow-md shadow-white">
-                    Seja um membro fundador
+                </p> */}
+                <Link onClick={removeModal} href='/unidades' className="bg-white px-2 py-3 font-inter rounded-xl absolute bottom-10 text-center z-10 hover:scale-105 transition-all shadow-md shadow-white">
+                    Conferir agora!
                 </Link>
             </div>
             <p onClick={_ => setShow(false)} className="absolute top-10 right-10 text-white cursor-pointer">Fechar X</p>
