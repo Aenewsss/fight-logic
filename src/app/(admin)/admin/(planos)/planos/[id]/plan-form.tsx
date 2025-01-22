@@ -25,7 +25,8 @@ export default function PlanForm({ id }: IProps) {
 
         async function getData() {
             const { data } = await planService.getPlanById(id)
-            setPlan({ id, name, text, price: data.price,subscriptions: data.subscriptions })
+            console.log(data)
+            setPlan({ id, name, text, price: data.price, subscriptions: data.subscriptions })
         }
         getData()
 
@@ -54,110 +55,120 @@ export default function PlanForm({ id }: IProps) {
                 <textarea value={plan.text} onChange={e => setPlan({ ...plan, text: e.target.value })} className="px-4 border rounded py-2" id="text" name="text"></textarea>
             </div>
             <div className="flex flex-col gap-2 w-full">
-                    <label htmlFor="description">Valor à vista</label>
-                    <input
-                        type="number"
-                        name='price'
-                        className="px-4 py-2 border rounded placeholder:text-gray-500"
-                        placeholder="3000"
-                    />
-                </div>
-                <div className="flex flex-col gap-2 w-full mt-4">
-                    <h3 className="font-semibold">Assinatura 1</h3>
-                    <div className="flex gap-8">
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="description">Recorrência</label>
-                            <input
-                                type="number"
-                                name='recurring-1'
-                                className="px-4 border rounded py-2 placeholder:text-gray-500"
-                                placeholder="Anual, mensal, trimestral"
-                            />
-                        </div>
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="description">Valor mensal</label>
-                            <input
-                                type="number"
-                                name='price-1'
-                                className="px-4 border rounded py-2 placeholder:text-gray-500"
-                                placeholder="200"
-                            />
-                        </div>
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="description">Link de pagamento</label>
-                            <input
-                                type="number"
-                                name='link-1'
-                                className="px-4 border rounded py-2 placeholder:text-gray-500"
-                                placeholder="Insira aqui o link do mercado pago"
-                            />
-                        </div>
+                <label htmlFor="description">Valor à vista</label>
+                <input
+                    value={plan.price}
+                    type="number"
+                    name='price'
+                    className="px-4 py-2 border rounded placeholder:text-gray-500"
+                    placeholder="3000"
+                />
+            </div>
+            <div className="flex flex-col gap-2 w-full mt-4">
+                <h3 className="font-semibold">Assinatura 1</h3>
+                <div className="flex gap-8">
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="description">Recorrência</label>
+                        <input
+                            value={plan?.subscriptions[0]?.recurring}
+                            type="number"
+                            name='recurring-1'
+                            className="px-4 border rounded py-2 placeholder:text-gray-500"
+                            placeholder="Anual, mensal, trimestral"
+                        />
+                    </div>
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="description">Valor mensal</label>
+                        <input
+                            value={plan?.subscriptions[0]?.price}
+                            type="number"
+                            name='price-1'
+                            className="px-4 border rounded py-2 placeholder:text-gray-500"
+                            placeholder="200"
+                        />
+                    </div>
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="description">Link de pagamento</label>
+                        <input
+                            value={plan?.subscriptions[0]?.link}
+                            type="text"
+                            name='link-1'
+                            className="px-4 border rounded py-2 placeholder:text-gray-500"
+                            placeholder="Insira aqui o link do mercado pago"
+                        />
                     </div>
                 </div>
-                <div className="flex flex-col gap-2 w-full">
-                    <h3 className="font-semibold">Assinatura 2</h3>
-                    <div className="flex gap-8">
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="description">Recorrência</label>
-                            <input
-                                type="number"
-                                name='recurring-2'
-                                className="px-4 border rounded py-2 placeholder:text-gray-500"
-                                placeholder="Anual, mensal, trimestral"
-                            />
-                        </div>
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="description">Valor mensal</label>
-                            <input
-                                type="number"
-                                name='price-2'
-                                className="px-4 border rounded py-2 placeholder:text-gray-500"
-                                placeholder="200"
-                            />
-                        </div>
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="description">Link de pagamento</label>
-                            <input
-                                type="number"
-                                name='link-2'
-                                className="px-4 border rounded py-2 placeholder:text-gray-500"
-                                placeholder="Insira aqui o link do mercado pago"
-                            />
-                        </div>
+            </div>
+            <div className="flex flex-col gap-2 w-full">
+                <h3 className="font-semibold">Assinatura 2</h3>
+                <div className="flex gap-8">
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="description">Recorrência</label>
+                        <input
+                            value={plan?.subscriptions[1]?.recurring}
+                            type="number"
+                            name='recurring-2'
+                            className="px-4 border rounded py-2 placeholder:text-gray-500"
+                            placeholder="Anual, mensal, trimestral"
+                        />
+                    </div>
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="description">Valor mensal</label>
+                        <input
+                            value={plan?.subscriptions[1]?.price}
+                            type="number"
+                            name='price-2'
+                            className="px-4 border rounded py-2 placeholder:text-gray-500"
+                            placeholder="200"
+                        />
+                    </div>
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="description">Link de pagamento</label>
+                        <input
+                            value={plan?.subscriptions[1]?.link}
+                            type="text"
+                            name='link-2'
+                            className="px-4 border rounded py-2 placeholder:text-gray-500"
+                            placeholder="Insira aqui o link do mercado pago"
+                        />
                     </div>
                 </div>
-                <div className="flex flex-col gap-2 w-full">
-                    <h3 className="font-semibold">Assinatura 3</h3>
-                    <div className="flex gap-8">
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="description">Recorrência</label>
-                            <input
-                                type="number"
-                                name='recurring-3'
-                                className="px-4 border rounded py-2 placeholder:text-gray-500"
-                                placeholder="Anual, mensal, trimestral"
-                            />
-                        </div>
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="description">Valor mensal</label>
-                            <input
-                                type="number"
-                                name='price-3'
-                                className="px-4 border rounded py-2 placeholder:text-gray-500"
-                                placeholder="200"
-                            />
-                        </div>
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="description">Link de pagamento</label>
-                            <input
-                                type="number"
-                                name='link-3'
-                                className="px-4 border rounded py-2 placeholder:text-gray-500"
-                                placeholder="Insira aqui o link do mercado pago"
-                            />
-                        </div>
+            </div>
+            <div className="flex flex-col gap-2 w-full">
+                <h3 className="font-semibold">Assinatura 3</h3>
+                <div className="flex gap-8">
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="description">Recorrência</label>
+                        <input
+                            value={plan?.subscriptions[2]?.recurring}
+                            type="number"
+                            name='recurring-3'
+                            className="px-4 border rounded py-2 placeholder:text-gray-500"
+                            placeholder="Anual, mensal, trimestral"
+                        />
+                    </div>
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="description">Valor mensal</label>
+                        <input
+                            value={plan?.subscriptions[2]?.price}
+                            type="number"
+                            name='price-3'
+                            className="px-4 border rounded py-2 placeholder:text-gray-500"
+                            placeholder="200"
+                        />
+                    </div>
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="description">Link de pagamento</label>
+                        <input
+                            value={plan?.subscriptions[2]?.link}
+                            type="text"
+                            name='link-3'
+                            className="px-4 border rounded py-2 placeholder:text-gray-500"
+                            placeholder="Insira aqui o link do mercado pago"
+                        />
                     </div>
                 </div>
+            </div>
             <input name="id" value={id} hidden type="text" />
 
             <div className="border-t pt-2 flex justify-end w-full">

@@ -50,7 +50,7 @@ export default function Navbar() {
                     <li className="hover:scale-105 transition-all"><Link href="/quem-somos">Quem somos</Link></li>
                     <li className="hover:scale-105 transition-all"><Link href="/aulas-particulares">Aula Particular</Link></li>
                     <li className="hover:scale-105 transition-all"><Link href="/horarios">Horários</Link></li>
-                    <li className="hover:scale-105 transition-all"><Link href="/#diferenciais">Diferenciais</Link></li>
+                    <li className="hover:scale-105 transition-all"><Link href="/unidades">Unidades</Link></li>
                 </ul>
                 <Link href="/" className="md:order-2 order-1">
                     <Image src={`${navClass.container ? '/logo-amarela-dark.png' : '/logo-branca.png'}`} width={navClass.container ? 106 : 76} height={38} alt="Logo Fight Logic" />

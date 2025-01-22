@@ -10,6 +10,7 @@ export async function POST(request: NextRequest) {
         const phone = form.get('phone')
         const plan = form.get('plan')
         const modality = form.get('modality')
+        const link = form.get('link')
 
         const transporter = nodemailer.createTransport({
             service: "Gmail",
@@ -35,8 +36,10 @@ export async function POST(request: NextRequest) {
             `,
         })
 
+
         const data = {
-            url: `/pagamento/metodo?plan_name=${plan}&plan_index=${modality}`,
+            // url: `/pagamento/metodo?plan_name=${plan}&plan_index=${modality}`,
+            url: link,
         }
 
         return NextResponse.json({ data, error: null });

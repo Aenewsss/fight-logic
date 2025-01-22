@@ -28,7 +28,6 @@ export default function BasicDataForm() {
         if (state?.error) toast(state.error, { type: "error" });
         if (state?.data) {
             toast('Pré-cadastro realizado', { type: "success" });
-            console.log('state.data',state.data)
             router.push(state.data.url)
         }
     }, [state]);

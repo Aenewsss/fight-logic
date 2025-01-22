@@ -32,7 +32,10 @@ export default function PlanList() {
         try {
             await planService.removePlan(id)
             toast('plano removido com sucesso', { type: "success" });
-            getPlans()
+            setTimeout(() => {
+               router.push('/admin/planos')
+                getPlans()
+            }, 300);
         } catch (error) {
             toast('Erro ao remover plano', { type: "error" });
         }
