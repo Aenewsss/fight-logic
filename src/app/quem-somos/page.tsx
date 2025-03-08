@@ -22,10 +22,10 @@ export default function Page() {
     return (
         <main className="container mx-auto md:pt-32 pt-10 pb-10  md:px-0 px-4">
             <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center mb-8">Conheça Nossa História</h1>
-            <div className="flex justify-between flex-wrap md:flex-nowrap">
+            <div className="flex justify-between flex-wrap md:flex-nowrap gap-4">
                 <Image className=" object-contain" src={about.image} width={480} height={480} alt="Foto Time Fight Logic" />
                 <div className="flex flex-col gap-4">
-                <p className="text-left font-inter mt-4 md:mt-8">{about.text || 'A Fight Logic surgiu da união acadêmica de Marcéu e Rackel , Professores de formação , em Educação Física e  Pedagogia , procurando racionalizar o ensino do Jiu-Jitsu construindo uma metodologia lógica e escolar que leve o aluno a progredir até a sonhada Faixa Preta praticando todas as vertentes do Jiu-Jitsu Brasileiro . '}</p>
+                    <p className="text-left font-inter mt-4 md:mt-8">{about.text || 'A Fight Logic surgiu da união acadêmica de Marcéu e Rackel , Professores de formação , em Educação Física e  Pedagogia , procurando racionalizar o ensino do Jiu-Jitsu construindo uma metodologia lógica e escolar que leve o aluno a progredir até a sonhada Faixa Preta praticando todas as vertentes do Jiu-Jitsu Brasileiro . '}</p>
 
                 </div>
             </div>

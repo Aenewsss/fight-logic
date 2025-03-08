@@ -18,7 +18,7 @@ export default function Page() {
 
     return (
         <main className="container mx-auto md:pt-36 pt-10 pb-10  md:px-0 px-4 flex flex-col gap-8">
-            <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center">Competições de JIU-JITSU / GRAPPLING / MMA</h1>
+            <h1 className="md:text-[3.5rem] text-4xl font-questrial text-center md:leading-[60px]">Competições de JIU-JITSU / GRAPPLING / MMA</h1>
 
             <div className="flex gap-4 my-10 flex-wrap">
                 <div className="md:w-1/2 flex flex-col gap-4 flex-wrap">
@@ -32,11 +32,11 @@ export default function Page() {
             </div>
 
             <div className="flex gap-4 flex-wrap">
-                <Image unoptimized className="object-cover w-full max-h-[400px]" src="/competicoes/comp6.jpeg" width={300} height={500} alt="foto competição 1" />
-                <Image unoptimized className="object-cover w-full max-h-[400px]" src="/competicoes/comp7.jpeg" width={300} height={500} alt="foto competição 1" />
-                <Image unoptimized className="object-cover w-full max-h-[400px]" src="/competicoes/comp8.jpeg" width={300} height={500} alt="foto competição 1" />
-                <Image unoptimized className="object-cover w-full max-h-[400px]" src="/competicoes/comp9.jpeg" width={300} height={500} alt="foto competição 1" />
-                <Image unoptimized className="object-cover w-full max-h-[400px]" src="/competicoes/comp10.jpeg" width={300} height={500} alt="foto competição 1" />
+                <Image unoptimized className="object-contain w-auto max-h-[400px]" src="/competicoes/comp6.jpeg" width={300} height={500} alt="foto competição 1" />
+                <Image unoptimized className="object-contain w-auto max-h-[400px]" src="/competicoes/comp7.jpeg" width={300} height={500} alt="foto competição 1" />
+                <Image unoptimized className="object-contain w-auto max-h-[400px]" src="/competicoes/comp8.jpeg" width={300} height={500} alt="foto competição 1" />
+                <Image unoptimized className="object-contain w-auto max-h-[400px]" src="/competicoes/comp9.jpeg" width={300} height={500} alt="foto competição 1" />
+                <Image unoptimized className="object-contain w-auto max-h-[400px]" src="/competicoes/comp10.jpeg" width={300} height={500} alt="foto competição 1" />
             </div>
 
             <div className="flex justify-center my-8">

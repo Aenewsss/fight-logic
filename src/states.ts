@@ -1,4 +1,4 @@
-import { IAbout, IFeedback, ISchedule, IStripeProducts, ITeam } from "./interfaces";
+import { IAbout, ICourse, IFeedback, ISchedule, IStripeProducts, ITeam } from "./interfaces";
 
 export const ScheduleInitialState: ISchedule = {
     friday: [''],
@@ -15,6 +15,13 @@ export const TeamInitialState: ITeam = {
     logo: '',
     name: 'Constrictor',
     text: ''
+}
+
+export const CourseInitialState: ICourse = {
+    image: '',
+    name: 'Curso 1',
+    text: '',
+    link: ''
 }
 
 export const AboutInitialState: IAbout = {

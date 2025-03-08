@@ -12,6 +12,7 @@ export default function Footer() {
                     <Image className="object-contain md:order-1 order-2" src="/logo-branca.png" width={106} height={38} alt="Logo branca Fight Logic" />
                 </Link>
                 <ul className="list-none flex justify-center flex-wrap gap-5 md:order-2 order-1 text-white font-questrial items-center text-sm">
+                    <li><Link href="/cursos">Cursos online</Link></li>
                     <li><Link href="/horarios">Nossos horários</Link></li>
                     <li><Link href="/equipes-parceiras">Equipes parceiras</Link></li>
                     <li><Link href="/#diferenciais">Diferenciais Fight Logic</Link></li>

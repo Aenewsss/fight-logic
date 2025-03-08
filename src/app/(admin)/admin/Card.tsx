@@ -3,7 +3,7 @@ import Link from "next/link"
 
 type TLink = 'diferenciais' | 'sobre-nos' | 'feedbacks' |
     'horarios' | 'pagamento' | 'banner' | 'equipes-parceiras' |
-    'aula-particular' | 'competicoes' | 'planos'
+    'aula-particular' | 'competicoes' | 'planos' | 'cursos'
 
 interface IProps {
     title: string

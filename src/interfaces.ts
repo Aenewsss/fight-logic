@@ -25,6 +25,14 @@ export interface ITeam {
     name: string
 }
 
+export interface ICourse {
+    id?: string
+    image: string
+    text: string
+    name: string
+    link: string
+}
+
 export interface ISchedule {
     monday: any
     tuesday: any,
