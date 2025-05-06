@@ -11,6 +11,7 @@ interface IProps {
 
 export default function ScheduleAddForm({ setShowFormToAdd }: IProps) {
     const [state, action] = useFormState(insertSchedule, undefined)
+    const [currentUnit, setCurrentUnit] = useState("lago-sul");
 
     const [hour, setHour] = useState();
 
@@ -47,6 +48,20 @@ export default function ScheduleAddForm({ setShowFormToAdd }: IProps) {
                     <option value="friday">Sexta</option>
                     <option value="saturday">Sábado</option>
                     <option value="sunday">Domingo</option>
+                </select>
+            </div>
+            <div className="space-y-2">
+                <label htmlFor="unit" className="block font-medium">Unidade</label>
+                <select
+                    name="unit"
+                    id="unit"
+                    className="border border-gray-300 rounded-md px-3 py-2 w-full"
+                    value={currentUnit}
+                    onChange={(e) => setCurrentUnit(e.target.value)}
+                >
+                    <option value="">Selecione a unidade</option>
+                    <option value="lago-sul">Lago Sul</option>
+                    <option value="asa-norte">Asa Norte</option>
                 </select>
             </div>
             <div className="flex flex-col gap-2 w-full">

@@ -3,8 +3,8 @@ import { IResponse } from "@/interfaces"
 import { get, ref, remove, set, update } from "firebase/database"
 
 class ScheduleService {
-    async getSchedules() {
-        const dbRef = ref(database, 'schedule/')
+    async getSchedules(unit: string) {
+        const dbRef = ref(database, `schedule/${unit}`)
         const data = await get(dbRef)
 
         if (!data.exists()) return { data: null, error: 'Nenhum horário encontrado' }
@@ -12,9 +12,9 @@ class ScheduleService {
         return { error: null, data: data.val() }
     }
 
-    async insertSchedule(id: string, hour: string, modality: string): Promise<IResponse> {
+    async insertSchedule(id: string, hour: string, modality: string, unity: string): Promise<IResponse> {
         try {
-            const setRef = ref(database, `schedule/${id}`)
+            const setRef = ref(database, `schedule/${unity}/${id}`)
 
             await update(setRef, { [hour]: modality })
 
@@ -24,15 +24,15 @@ class ScheduleService {
         }
     }
 
-    async removeSchedule(id: string, hour: string): Promise<IResponse> {
+    async removeSchedule(id: string, hour: string, unit:string): Promise<IResponse> {
         try {
-            const dbRef = ref(database, `schedule/${id}`)
+            const dbRef = ref(database, `schedule/${unit}/${id}`)
 
             const schedule = await get(dbRef)
             const updatedSchedule = schedule.val()
 
             delete updatedSchedule[hour]
-            
+
             console.log(updatedSchedule, id)
             if (updatedSchedule.length == 0) await set(dbRef, '')
             else set(dbRef, updatedSchedule)

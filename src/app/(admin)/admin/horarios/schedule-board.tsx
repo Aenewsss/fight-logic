@@ -6,19 +6,22 @@ import ScheduleAddForm from "./schedule-add-form";
 import { ISchedule } from "@/interfaces";
 import { ToastContainer, toast } from "react-toastify";
 
+export const UNITS = ["lago-sul", "asa-norte"];
+
 export default function ScheduleBoard() {
 
     const [schedules, setSchedules] = useState<ISchedule>();
     const [loading, setLoading] = useState(false);
     const [showFormToAdd, setShowFormToAdd] = useState(false);
+    const [currentUnit, setCurrentUnit] = useState("lago-sul");
 
     useEffect(() => {
         getSchedules()
-    }, [showFormToAdd]);
+    }, [showFormToAdd, currentUnit]);
 
     async function getSchedules() {
         setLoading(true)
-        const { data } = await scheduleService.getSchedules()
+        const { data } = await scheduleService.getSchedules(currentUnit)
         setSchedules(data)
         setLoading(false)
     }
@@ -29,7 +32,7 @@ export default function ScheduleBoard() {
 
     async function removeHour(id: string, hour: string) {
         try {
-            await scheduleService.removeSchedule(id, hour)
+            await scheduleService.removeSchedule(id, hour, currentUnit)
             toast('Horário removido com sucesso', { type: "success" });
             getSchedules()
         } catch (error) {
@@ -44,6 +47,17 @@ export default function ScheduleBoard() {
 
     return (
         <div className="bg-white md:p-8 mt-8 w-full flex flex-col items-center">
+            <div className="flex gap-4 mb-6">
+                {UNITS.map((unit) => (
+                    <button
+                        key={unit}
+                        className={`px-4 py-2 rounded ${currentUnit === unit ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+                        onClick={() => setCurrentUnit(unit)}
+                    >
+                        {unit === 'lago-sul' ? 'Lago Sul' : 'Asa Norte'}
+                    </button>
+                ))}
+            </div>
             <table className="table-auto w-full rounded-md overflow-hidden hidden md:table">
                 <thead>
                     <tr className="bg-slate-300">

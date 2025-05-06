@@ -1,4 +1,5 @@
 'use client'
+import { UNITS } from "@/app/(admin)/admin/horarios/schedule-board";
 import Reveal from "@/app/hooks/Reveal";
 import { ISchedule } from "@/interfaces";
 import scheduleService from "@/services/schedule.service";
@@ -10,10 +11,11 @@ export default function ScheduleBoard() {
 
     const [schedule, setSchedule] = useState<ISchedule>(ScheduleInitialState);
     const [mobileScreen, setMobileScreen] = useState(false);
+    const [currentUnit, setCurrentUnit] = useState("lago-sul");
 
     useEffect(() => {
         async function getData() {
-            const { data } = await scheduleService.getSchedules()
+            const { data } = await scheduleService.getSchedules(currentUnit)
             setSchedule(data)
         }
 
@@ -32,13 +34,25 @@ export default function ScheduleBoard() {
         return () => {
             window.removeEventListener('resize', screenWidthListener)
         }
-    }, []);
+    }, [, currentUnit]);
 
     if (!schedule) return <p>Grade horária indisponível</p>
 
     if (mobileScreen) return (
         <div className="flex flex-col gap-4  w-full">
-            <div className="gap-4 bg-black text-white p-4 rounded-md flex flex-col">
+            <div className="flex gap-4 mb-6">
+                {UNITS.map((unit) => (
+                    <button
+                        key={unit}
+                        className={`px-4 py-2 rounded ${currentUnit === unit ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+                        onClick={() => setCurrentUnit(unit)}
+                    >
+                        {unit === 'lago-sul' ? 'Lago Sul' : 'Asa Norte'}
+                    </button>
+                ))}
+            </div>
+
+            <div className="gap-4 bg-white text-white p-4 rounded-md flex flex-col">
                 {/* <div className="flex flex-col gap-2">
                     <h4 className="border-b border-gray-700 pb-2">Domingo</h4>
                     <ul className="md:min-w-[140px] min-w-[60px] font-inter">
@@ -50,11 +64,11 @@ export default function ScheduleBoard() {
                     </ul>
                 </div> */}
                 <div className="flex flex-col gap-2 border-b border-gray-700 pb-2">
-                    <h4 className="font-extrabold tracking-widest">Segunda</h4>
-                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-4 my-2">
+                    <h4 className="font-extrabold tracking-widest text-black">Segunda</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-2 my-2">
                         {Object.entries(schedule.monday).map((el: any, index) =>
-                            <li className="transition-all hover:translate-x-1" key={index}>
-                                <Link className="bg-slate-900 p-2 rounded-sm" href="/matricula">
+                            <li className="p-3 transition-all bg-white  shadow-md w-full text-black hover:translate-x-1" key={index}>
+                                <Link className=" rounded-sm" href="/matricula">
                                     <span>{el[0]}h</span>
                                     <span className="font-light">&nbsp;-&nbsp;{el[1]}</span>
                                 </Link>
@@ -63,11 +77,11 @@ export default function ScheduleBoard() {
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 border-b border-gray-700 pb-2">
-                    <h4 className="font-extrabold tracking-widest">Terça</h4>
-                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-4 my-2">
+                    <h4 className="font-extrabold tracking-widest text-black">Terça</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-2 my-2">
                         {Object.entries(schedule.tuesday).map((el: any, index) =>
-                            <li className="transition-all hover:translate-x-1" key={index}>
-                                <Link className="bg-slate-900 p-2 rounded-sm" href="/matricula">
+                            <li className="p-3 transition-all bg-white  shadow-md w-full text-black hover:translate-x-1" key={index}>
+                                <Link className=" rounded-sm" href="/matricula">
                                     <span>{el[0]}h</span>
                                     <span className="font-light">&nbsp;-&nbsp;{el[1]}</span>
                                 </Link>
@@ -76,11 +90,11 @@ export default function ScheduleBoard() {
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 border-b border-gray-700 pb-2">
-                    <h4 className="font-extrabold tracking-widest">Quarta</h4>
-                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-4 my-2">
+                    <h4 className="font-extrabold tracking-widest text-black">Quarta</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-2 my-2">
                         {Object.entries(schedule.wednesday).map((el: any, index) =>
-                            <li className="transition-all hover:translate-x-1 " key={index}>
-                                <Link className="bg-slate-900 p-2 rounded-sm" href="/matricula">
+                            <li className="p-3 transition-all bg-white  shadow-md w-full text-black hover:translate-x-1 " key={index}>
+                                <Link className=" rounded-sm" href="/matricula">
                                     <span>{el[0]}h</span>
                                     <span className="font-light">&nbsp;-&nbsp;{el[1]}</span>
                                 </Link>
@@ -89,11 +103,11 @@ export default function ScheduleBoard() {
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 border-b border-gray-700 pb-2">
-                    <h4 className="font-extrabold tracking-widest">Quinta</h4>
-                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-4 my-2">
+                    <h4 className="font-extrabold tracking-widest text-black">Quinta</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-2 my-2">
                         {Object.entries(schedule.thursday).map((el: any, index) =>
-                            <li className="transition-all hover:translate-x-1 " key={index}>
-                                <Link className="bg-slate-900 p-2 rounded-sm" href="/matricula">
+                            <li className="p-3 transition-all bg-white  shadow-md w-full text-black hover:translate-x-1 " key={index}>
+                                <Link className=" rounded-sm" href="/matricula">
                                     <span>{el[0]}h</span>
                                     <span className="font-light">&nbsp;-&nbsp;{el[1]}</span>
                                 </Link>
@@ -102,11 +116,11 @@ export default function ScheduleBoard() {
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 border-b border-gray-700 pb-2">
-                    <h4 className="font-extrabold tracking-widest">Sexta</h4>
-                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-4 my-2">
+                    <h4 className="font-extrabold tracking-widest text-black">Sexta</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-2 my-2">
                         {Object.entries(schedule.friday).map((el: any, index) =>
-                            <li className="transition-all hover:translate-x-1 " key={index}>
-                                <Link className="bg-slate-900 p-2 rounded-sm" href="/matricula">
+                            <li className="p-3 transition-all bg-white  shadow-md w-full text-black hover:translate-x-1 " key={index}>
+                                <Link className=" rounded-sm" href="/matricula">
                                     <span>{el[0]}h</span>
                                     <span className="font-light">&nbsp;-&nbsp;{el[1]}</span>
                                 </Link>
@@ -115,11 +129,11 @@ export default function ScheduleBoard() {
                     </ul>
                 </div>
                 <div className="flex flex-col gap-2 border-b border-gray-700 pb-2">
-                    <h4 className="font-extrabold tracking-widest">Sábado</h4>
-                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-4 my-2">
+                    <h4 className="font-extrabold tracking-widest text-black">Sábado</h4>
+                    <ul className="md:min-w-[140px] min-w-[60px] flex flex-wrap gap-2 my-2">
                         {Object.entries(schedule.saturday).map((el: any, index) =>
-                            <li className="transition-all hover:translate-x-1 " key={index}>
-                                <Link className="bg-slate-900 p-2 rounded-sm" href="/matricula">
+                            <li className="p-3 transition-all bg-white  shadow-md w-full text-black hover:translate-x-1 " key={index}>
+                                <Link className=" rounded-sm" href="/matricula">
                                     <span>{el[0]}h</span>
                                     <span className="font-light">&nbsp;-&nbsp;{el[1]}</span>
                                 </Link>
@@ -136,8 +150,20 @@ export default function ScheduleBoard() {
         </div>
     )
     else return (
-        <div className="bg-black py-8 px-4 lg:px-16 text-white flex flex-col gap-8 mb-10 items-center" style={{ boxShadow: '-2px -2px 10px 0 rgb(0,0,0), 2px 2px 10px 0 rgb(0,0,0)' }}>
-            <ul className="flex  list-none text-2xl font-questrial">
+        <div className="bg-white text-white py-8 px-4 lg:px-16 flex flex-col gap-8 mb-10 items-center" style={{ boxShadow: '2px 2px 10px 0 rgba(0,0,0, 0.2)' }}>
+            <div className="flex gap-4 mb-6">
+                {UNITS.map((unit) => (
+                    <button
+                        key={unit}
+                        className={`px-4 py-2 rounded ${currentUnit === unit ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+                        onClick={() => setCurrentUnit(unit)}
+                    >
+                        {unit === 'lago-sul' ? 'Lago Sul' : 'Asa Norte'}
+                    </button>
+                ))}
+            </div>
+
+            <ul className="flex  list-none text-2xl font-questrial text-black">
                 {/* <li className="lg:w-[160px] md:w-[120px] text-center">Domingo</li> */}
                 <li className="lg:w-[160px] md:w-[120px] text-center">Segunda</li>
                 <li className="lg:w-[160px] md:w-[120px] text-center">Terça</li>
@@ -157,7 +183,7 @@ export default function ScheduleBoard() {
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
                     {schedule.monday && Object.entries(schedule.monday).map((el: any, index) =>
                         <li className="text-center" key={index}>
-                            <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
+                            <Link className="bg-white shadow-md text-black p-2 rounded-sm flex flex-col transition-all hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
                                 <span className="font-light">{el[1]}</span>
                             </Link>
@@ -167,7 +193,7 @@ export default function ScheduleBoard() {
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
                     {schedule.tuesday && Object.entries(schedule.tuesday).map((el: any, index) =>
                         <li className="text-center" key={index}>
-                            <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
+                            <Link className="bg-white shadow-md text-black p-2 rounded-sm flex flex-col transition-all hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
                                 <span className="font-light">{el[1]}</span>
                             </Link>
@@ -177,7 +203,7 @@ export default function ScheduleBoard() {
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
                     {schedule.wednesday && Object.entries(schedule.wednesday).map((el: any, index) =>
                         <li className="text-center" key={index}>
-                            <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
+                            <Link className="bg-white shadow-md text-black p-2 rounded-sm flex flex-col transition-all hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
                                 <span className="font-light">{el[1]}</span>
                             </Link>
@@ -187,7 +213,7 @@ export default function ScheduleBoard() {
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
                     {schedule.thursday && Object.entries(schedule.thursday).map((el: any, index) =>
                         <li className="text-center" key={index}>
-                            <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
+                            <Link className="bg-white shadow-md text-black p-2 rounded-sm flex flex-col transition-all hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
                                 <span className="font-light">{el[1]}</span>
                             </Link>
@@ -197,7 +223,7 @@ export default function ScheduleBoard() {
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2 border-r border-[#8A8A8A]">
                     {schedule.friday && Object.entries(schedule.friday).map((el: any, index) =>
                         <li className="text-center" key={index}>
-                            <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
+                            <Link className="bg-white shadow-md text-black p-2 rounded-sm flex flex-col transition-all hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
                                 <span className="font-light">{el[1]}</span>
                             </Link>
@@ -207,7 +233,7 @@ export default function ScheduleBoard() {
                 <ul className="lg:w-[160px] md:w-[120px] flex flex-col gap-2 px-2">
                     {schedule.saturday && Object.entries(schedule.saturday).map((el: any, index) =>
                         <li className="text-center" key={index}>
-                            <Link className="bg-slate-900 p-2 rounded-sm flex flex-col transition-none hover:scale-105" href='/matricula'>
+                            <Link className="bg-white shadow-md text-black p-2 rounded-sm flex flex-col transition-all hover:scale-105" href='/matricula'>
                                 <span className="font-bold">{el[0]}h</span>
                                 <span className="font-light">{el[1]}</span>
                             </Link>
